@@ -280,9 +280,9 @@ let in
     inputClassSections =
     [
       ''
- 	      Identifier "touchpad"
-	      MatchProduct "DLL0665:01 06CB:76AD Touchpad"
-	      Driver "libinput"
+        Identifier "touchpad"
+        MatchProduct "DLL0665:01 06CB:76AD Touchpad"
+        Driver "libinput"
       ''
     ];
     libinput = {
