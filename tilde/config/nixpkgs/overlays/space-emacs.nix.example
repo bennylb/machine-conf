@@ -1,0 +1,9 @@
+self: super:
+
+let
+  lyrDeps = (import ../pypi2nix-gens/spacemacs-py-lyr-deps/requirements.nix { pkgs = self; });
+in {
+  emacs = super.emacs.overrideAttrs (oldAttrs: {
+    propagatedBuildInputs = oldAttrs.propagatedBuildInputs ++ (builtins.attrValues lyrDeps.packages);
+  });
+}

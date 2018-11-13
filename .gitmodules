@@ -1,0 +1,3 @@
+[submodule "example-nix"]
+	path = example-nix
+	url = https://github.com/shajra/example-nix

@@ -1,0 +1,9 @@
+self: super:
+{
+  qutebrowser =
+    super.qutebrowser.overrideAttrs (oldAttrs: {
+      propagatedBuildInputs =
+        oldAttrs.propagatedBuildInputs ++
+          (with self.python3Packages; [ tldextract ]);
+    });
+}
