@@ -32,7 +32,7 @@ c.fonts.prompts = '12pt monospace'
 c.fonts.statusbar = '12pt monospace'
 c.fonts.tabs = '12pt monospace'
 
-c.fonts.web.size.minimum = 14
+c.fonts.web.size.minimum = 13
 
 c.zoom.default = 110
 
