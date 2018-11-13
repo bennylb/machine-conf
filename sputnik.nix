@@ -118,8 +118,6 @@ let in
     rofi
     clipster
     gnome3.gnome_themes_standard
-    adapta-gtk-theme
-    paper-icon-theme
     mpv
     (inkscape.override { scourSupport = true; })
     # (hunspellWithDicts [ hunspellDicts.en-gb-ise ])
