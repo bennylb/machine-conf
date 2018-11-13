@@ -83,14 +83,15 @@ let in
     unzip
     gptfdisk
     htop
+    tree
     fd
     ripgrep
     bat
     powertop
+    cheat
     rxvt_unicode
     alacritty
     # xfce.terminal
-    cheat
     # web/network
     networkmanagerapplet
     (qutebrowser.override { withPdfReader = false; withMediaPlayback = false; })
