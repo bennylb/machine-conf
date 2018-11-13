@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 ES_SOCK="/tmp/emacs1000/server"
-EM_CLIENT="/run/current-system/sw/bin/emacsclient"
+EC_BIN="/home/ben/bin/emc-wrap"
 
-$EM_CLIENT --eval '(save-buffers-kill-emacs)'
-$EM_CLIENT  -n -c -a "" --socket-name=$ES_SOCK
+$EC_BIN --eval '(save-buffers-kill-emacs)'
+$EC_BIN  -n -c -a "" --socket-name=$ES_SOCK

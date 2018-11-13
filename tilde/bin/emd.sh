@@ -1,7 +1,6 @@
 #!/usr/bin/env sh
 
-ed_sock="/tmp/emacs1000/server"
-ed_path="/run/current-system/sw/bin/emacs"
+ED_SOCK="/tmp/emacs1000/server"
+EM_BIN="/home/ben/bin/emc-wrap"
 
-$ed_path --daemon=$ed_sock
-
+$EM_BIN --daemon=$ED_SOCK

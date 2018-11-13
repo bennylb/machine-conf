@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-es_sock="/tmp/emacs1000/server"
-ec_path="/run/current-system/sw/bin/emacsclient"
+ES_SOCK="/tmp/emacs1000/server"
+EC_BIN="/home/ben/bin/emc-wrap"
 
-$ec_path -c -a "" --socket-name=$es_sock "$@"
+$EC_BIN -c -a "" --socket-name=$ES_SOCK "$@"
