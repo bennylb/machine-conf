@@ -93,11 +93,15 @@ in rec {
     configFile."qutebrowser/default.nix".source = "${repoPrefix}/config/qutebrowser/default.nix";
     configFile."qutebrowser/quickmarks".source = "${repoPrefix}/config/qutebrowser/quickmarks";
     configFile."qutebrowser/requirements.nix".source = "${repoPrefix}/config/qutebrowser/requirements.nix";
+    configFile."direnv/direnvrc".source = "${homeDir}/${repoName}/example-nix/tools/direnv/direnvrc";
+    configFile."doom" = {
+      source = "${repoPrefix}/config/doom";
+      recursive = true;
+    };
     configFile."nixpkgs/overlays" = {
       source = "${repoPrefix}/config/nixpkgs/overlays";
       recursive = true;
     };
-    configFile."direnv/direnvrc".source = "${repoPrefix}/example-nix/tools/direnv/direnvrc";
   };
 
   gtk = {
