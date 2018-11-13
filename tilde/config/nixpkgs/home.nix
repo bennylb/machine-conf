@@ -5,10 +5,11 @@ let
   lib          = pkgs.stdenv.lib;
 
   homeDir      = builtins.getEnv "HOME";
-  repoName     = "machine-conf";
-  repoPrefix   = "${homeDir}/${repoName}/tilde";
-  homePrefix   = "${homeDir}";
   interfixPath = "config";
+  repoName     = "machine-conf";
+  homePrefix   = "${homeDir}";
+  repoRoot     = "${homeDir}/${repoName}";
+  tilde        = "${homeDir}/${repoName}/tilde";
 
   srcPaths = with lib; with builtins;
     { rpfix, hpfix, infix }:
@@ -68,9 +69,11 @@ in rec {
     #   listToAttrs
     #     (concatLists
     #       (srcPaths {
-    #         rpfix = repoPrefix;
+    #         rpfix = tilde;
     #         hpfix = homePrefix;
     #         infix = interfixPath;}));
+
+    file.".commonrc.sh".source = "${repoRoot}/commonrc.sh";
 
     # packages = [];
   };
@@ -82,24 +85,24 @@ in rec {
     # cacheHome  = "${homeDir}/.cache";
     # dataHome   = "${homeDir}/.local/share";
 
-    configFile."alacritty/alacritty.yml".source = "${repoPrefix}/config/alacritty/alacritty.yml";
-    configFile."clipster/clipster.ini".source = "${repoPrefix}/config/clipster/clipster.ini";
-    configFile."i3/config".source = "${repoPrefix}/config/i3/config";
-    configFile."i3/pystatus.py".source = "${repoPrefix}/config/i3/pystatus.py";
-    configFile."mpv/mpv.conf".source = "${repoPrefix}/config/mpv/mpv.conf";
-    configFile."mpv/scripts/dev/select-ao.lua".source = "${repoPrefix}/config/mpv/scripts/dev/select-ao.lua";
-    configFile."qutebrowser/bookmarks/urls".source = "${repoPrefix}/config/qutebrowser/bookmarks/urls";
-    configFile."qutebrowser/config.py".source = "${repoPrefix}/config/qutebrowser/config.py";
-    configFile."qutebrowser/default.nix".source = "${repoPrefix}/config/qutebrowser/default.nix";
-    configFile."qutebrowser/quickmarks".source = "${repoPrefix}/config/qutebrowser/quickmarks";
-    configFile."qutebrowser/requirements.nix".source = "${repoPrefix}/config/qutebrowser/requirements.nix";
-    configFile."direnv/direnvrc".source = "${homeDir}/${repoName}/example-nix/tools/direnv/direnvrc";
+    configFile."alacritty/alacritty.yml".source = "${tilde}/config/alacritty/alacritty.yml";
+    configFile."clipster/clipster.ini".source = "${tilde}/config/clipster/clipster.ini";
+    configFile."i3/config".source = "${tilde}/config/i3/config";
+    configFile."i3/pystatus.py".source = "${tilde}/config/i3/pystatus.py";
+    configFile."mpv/mpv.conf".source = "${tilde}/config/mpv/mpv.conf";
+    configFile."mpv/scripts/dev/select-ao.lua".source = "${tilde}/config/mpv/scripts/dev/select-ao.lua";
+    configFile."qutebrowser/bookmarks/urls".source = "${tilde}/config/qutebrowser/bookmarks/urls";
+    configFile."qutebrowser/config.py".source = "${tilde}/config/qutebrowser/config.py";
+    configFile."qutebrowser/default.nix".source = "${tilde}/config/qutebrowser/default.nix";
+    configFile."qutebrowser/quickmarks".source = "${tilde}/config/qutebrowser/quickmarks";
+    configFile."qutebrowser/requirements.nix".source = "${tilde}/config/qutebrowser/requirements.nix";
+    configFile."direnv/direnvrc".source = "${repoRoot}/example-nix/tools/direnv/direnvrc";
     configFile."doom" = {
-      source = "${repoPrefix}/config/doom";
+      source = "${tilde}/config/doom";
       recursive = true;
     };
     configFile."nixpkgs/overlays" = {
-      source = "${repoPrefix}/config/nixpkgs/overlays";
+      source = "${tilde}/config/nixpkgs/overlays";
       recursive = true;
     };
   };
