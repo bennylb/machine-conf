@@ -63,13 +63,27 @@ alias saleor="make -f dev-example.Makefile"
 nixify() {
     if [ ! -e ./.envrc ]; then
         cat > .envrc <<'EOF'
+use_nix_gcrooted -c
 
+# Set addtional variables here
+#
+# e.g
+#
+# Adds virtualenv bin to PATH
+# PATH_add ./venv/bin
+#
+# Adds node_modules/.bin to PATH
+# layout_node
+#
+# path_add VAR ./some/lib/path
+# e.g add libs to PYTHONPATH
+# path_add PYTHONPATH ./path/to/some/lib
 EOF
         direnv allow
     fi
 }
 
-nixify_edit() {
+nixify_create() {
     nixify
 
     if [ ! -e shell.nix ]; then
