@@ -13,4 +13,8 @@ status.register("battery",
                     "FULL": "=",
                 },)
 
+status.register("disk",
+    path="/",
+    format="{used}/{total}G [{avail}G]",)
+
 status.run()
