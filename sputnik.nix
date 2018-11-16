@@ -90,8 +90,7 @@ let in
     powertop
     cheat
     rxvt_unicode
-    alacritty
-    # xfce.terminal
+    xfce.terminal
     # web/network
     networkmanagerapplet
     (qutebrowser.override { withPdfReader = false; withMediaPlayback = false; })
