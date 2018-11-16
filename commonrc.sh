@@ -1,10 +1,5 @@
 # Shell agnostic configuration to be sourced from your shell rc.
 
-# The following emulate as per
-# https://unix.stackexchange.com/questions/25243/difference-between-alias-in-zsh-and-alias-in-bash
-# but needs some work for intended behaviour.
-# emulate -LR sh 2>/dev/null
-
 # TMUX
 if which tmux >/dev/null 2>&1; then
     case "$TERM" in
@@ -75,9 +70,11 @@ use_nix_gcrooted -c
 # Adds node_modules/.bin to PATH
 # layout_node
 #
-# path_add VAR ./some/lib/path
+# path_add VAR ./path/to/lib/or/bin
 # e.g add libs to PYTHONPATH
 # path_add PYTHONPATH ./path/to/some/lib
+#
+# For more information see: man direnv-stdlib
 EOF
         direnv allow
     fi
@@ -88,10 +85,13 @@ nixify_create() {
 
     if [ ! -e shell.nix ]; then
         cat > shell.nix <<'EOF'
-with import <nixpkgs> {};
-stdenv.mkDerivation {
-  name = "env";
-  buildInputs = [
+{ pkgs ? import <nixpkgs> {} }:
+
+pkgs.mkShell {
+  # inputsFrom = [
+  #
+  # ];
+  buildInputs = with pkgs; [
     bashInteractive
   ];
 }
