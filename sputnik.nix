@@ -199,6 +199,7 @@ let in
       # source ${pkgs.grml-zsh-config}/etc/zsh/zshrc
       source ${pkgs.antigen}/share/antigen/antigen.zsh
     '';
+    fish.enable = true;
     tmux.enable = true;
     # light only needed when using X modesetting as xbacklight isn't available
     # programs.light.enable = true;
@@ -326,7 +327,6 @@ let in
     ];
   };
 
-  users.defaultUserShell = pkgs.zsh;
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.extraUsers.ben = {
     isNormalUser = true;
