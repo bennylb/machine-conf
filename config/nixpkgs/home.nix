@@ -79,34 +79,13 @@ in rec {
     file.".tmux.conf".source = "${repoRoot}/tmux.conf";
     file.".xsession".source = "${repoRoot}/xsession";
     file.".Xresources".source = "${repoRoot}/Xresources";
-    file."bin/emc" = {
-      source = "${repoRoot}/bin/emc.sh";
-      # executable = true;
-    };
-    file."bin/emd" = {
-      source = "${repoRoot}/bin/emd.sh";
-      # executable = true;
-    };
-    file."bin/emw" = {
-      source = "${repoRoot}/bin/emw.sh";
-      # executable = true;
-    };
-    file."bin/emc-wrap" = {
-      source = "${repoRoot}/bin/emc-wrap.sh";
-      # executable = true;
-    };
-    file."bin/restart-emacs" = {
-      source = "${repoRoot}/bin/restart-emacs.sh";
-      # executable = true;
-    };
-    file."bin/touchpad" = {
-      source = "${repoRoot}/bin/touchpad.sh";
-      # executable = true;
-    };
-    file."bin/qutebrowser" = {
-      source = "${repoRoot}/bin/qutebrowser.sh";
-      # executable = true;
-    };
+    file."bin/emc".source = "${repoRoot}/bin/emc.sh";
+    file."bin/emd".source = "${repoRoot}/bin/emd.sh";
+    file."bin/emw".source = "${repoRoot}/bin/emw.sh";
+    file."bin/emc-wrap".source = "${repoRoot}/bin/emc-wrap.sh";
+    file."bin/restart-emacs".source = "${repoRoot}/bin/restart-emacs.sh";
+    file."bin/touchpad".source = "${repoRoot}/bin/touchpad.sh";
+    file."bin/qutebrowser".source = "${repoRoot}/bin/qutebrowser.sh";
 
     # packages = [];
   };
