@@ -74,6 +74,11 @@ in rec {
     #         infix = interfixPath;}));
 
     file.".commonrc.sh".source = "${repoRoot}/commonrc.sh";
+    file.".profile".source = "${repoRoot}/profile";
+    file.".zprofile".source = "${repoRoot}/zprofile";
+    file.".tmux.conf".source = "${repoRoot}/tmux.conf";
+    file.".xsession".source = "${repoRoot}/xsession";
+    file.".Xresources".source = "${repoRoot}/Xresources";
 
     # packages = [];
   };
@@ -93,9 +98,7 @@ in rec {
     configFile."mpv/scripts/dev/select-ao.lua".source = "${tilde}/config/mpv/scripts/dev/select-ao.lua";
     configFile."qutebrowser/bookmarks/urls".source = "${tilde}/config/qutebrowser/bookmarks/urls";
     configFile."qutebrowser/config.py".source = "${tilde}/config/qutebrowser/config.py";
-    configFile."qutebrowser/default.nix".source = "${tilde}/config/qutebrowser/default.nix";
     configFile."qutebrowser/quickmarks".source = "${tilde}/config/qutebrowser/quickmarks";
-    configFile."qutebrowser/requirements.nix".source = "${tilde}/config/qutebrowser/requirements.nix";
     configFile."direnv/direnvrc".source = "${repoRoot}/example-nix/tools/direnv/direnvrc";
     configFile."doom" = {
       source = "${tilde}/config/doom";

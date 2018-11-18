@@ -35,8 +35,9 @@ fi
 
 # Aliases
 alias sudo="sudo "
+alias cat="bat --style=plain"
 # alias less="less -R"
-alias less="bat"
+alias less="bat --style=plain"
 alias fd="fd"
 alias du="du -h"
 # systemctl
@@ -76,7 +77,7 @@ use_nix_gcrooted -c
 #
 # For more information see: man direnv-stdlib
 EOF
-        direnv allow
+        # direnv allow
     fi
 }
 

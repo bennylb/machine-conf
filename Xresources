@@ -1,0 +1,111 @@
+! -- Fonts config ------------------------------------------------------------
+! Xft.autohint: 0
+! Xft.lcdfilter: lcddefault
+! Xft.hintstyle: hintslight
+! Xft.hinting: 1
+! Xft.antialias: 1
+! Some unpatched versions of urxvt may need rgba set to: none
+! or the letterSpace option set below to fix font spacing
+! Xft.rgba: rgb 
+
+! -- Basic URxvt config example ----------------------------------------------
+URxvt*font: xft:Ubuntu Mono:size=13
+! URxvt*letterSpace: -1
+URxvt*scrollBar: false
+! URxvt*iconFile: /path/to/file
+
+! -- Colour themes -----------------------------------------------------------
+!
+! Provided by http://iterm2colorschemes.com/
+
+! #include "/home/ben/git/iTerm2-Color-Schemes/xrdb/Monokai Soda.xrdb"
+
+! URxvt*color0:       Ansi_0_Color
+! URxvt*color1:       Ansi_1_Color
+! URxvt*color2:       Ansi_2_Color
+! URxvt*color3:       Ansi_3_Color
+! URxvt*color4:       Ansi_4_Color
+! URxvt*color5:       Ansi_5_Color
+! URxvt*color6:       Ansi_6_Color
+! URxvt*color7:       Ansi_7_Color
+! URxvt*color8:       Ansi_8_Color
+! URxvt*color9:       Ansi_9_Colot
+! URxvt*color10:      Ansi_10_Color
+! URxvt*color11:      Ansi_11_Color
+! URxvt*color12:      Ansi_12_Color
+! URxvt*color13:      Ansi_13_Color
+! URxvt*color14:      Ansi_14_Color
+! URxvt*color15:      Ansi_15_Color
+! URxvt*colorBD:      Bold_Color
+! URxvt*colorIT:      Italic_Color
+! URxvt*colorUL:      Underline_Color
+! URxvt*foregrund:    Foreground_Color
+! URxvt*background:   Background_Color
+
+! https://zhy0.com/posts/hyperterm-snazzy-theme-for-xresources/
+
+! URxvt*font: xft:Menlo\ for\ Powerline:Regular:pixelsize=12
+URxvt*foreground: #eff0eb
+URxvt*background: #282a36
+! URxvt*cursorColor: #97979b
+
+! Black + DarkGrey
+URxvt*color0: #282a36
+URxvt*color8: #686868
+
+! DarkRed + Red
+URxvt*color1: #ff5c57
+URxvt*color9: #ff5c57
+
+! DarkGreen + Green
+URxvt*color2: #5af78e
+URxvt*color10:#5af78e
+
+! DarkYellow + Yellow
+URxvt*color3: #f3f99d
+URxvt*color11:#f3f99d
+
+! DarkBlue + Blue
+URxvt*color4: #57c7ff
+URxvt*color12:#57c7ff
+
+! DarkMagenta + Magenta
+URxvt*color5: #ff6ac1
+URxvt*color13:#ff6ac1
+
+! DarkCyan + Cyan (both not tango)
+URxvt*color6: #9aedfe
+URxvt*color14:#9aedfe
+
+! LightGrey + White
+URxvt*color7: #eff0eb
+URxvt*color15:#f1f1f0
+
+! -- Rofi configuration --------------------------------------------------------
+!
+rofi.kb-cancel: Control+g,Escape,Control+bracketleft
+! rofi.kb-row-tab: 
+rofi.kb-mode-next: Shift+Right,Control+Tab
+rofi.kb-remove-word-back: Control+Alt+h,Alt+BackSpace
+rofi.kb-remove-word-forward: Control+Alt+d,Alt+d
+!rofi.kb-clear-line: Control+u,Control+k
+rofi.font: Ubuntu Mono 13
+
+! ------------------------------------------------------------------------------
+! ROFI Color theme MY
+! ------------------------------------------------------------------------------
+! rofi.color-enabled: true
+! rofi.color-window: #273238, #3E4B51, #1e2529
+! rofi.color-normal: #273238, #c1c1c1, #273238, #394249, #ffffff
+! rofi.color-active: #273238, #80cbc4, #273238, #394249, #80cbc4
+! rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
+! rofi.bw: 6
+
+! ------------------------------------------------------------------------------
+! ROFI Color theme Android Notification theme
+! ------------------------------------------------------------------------------
+rofi.color-enabled: true
+rofi.color-window: #273238, #273238, #1e2529
+rofi.color-normal: #273238, #c1c1c1, #273238, #394249, #ffffff
+rofi.color-active: #273238, #80cbc4, #273238, #394249, #80cbc4
+rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
