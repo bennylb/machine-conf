@@ -35,9 +35,7 @@ fi
 
 # Aliases
 alias sudo="sudo "
-# alias cat="bat --style=plain"
 # alias less="less -R"
-# alias less="bat --style=plain"
 alias fd="fd"
 alias du="du -h"
 # systemctl

@@ -111,6 +111,9 @@ in rec {
       source = "${repoRoot}/config/nixpkgs/overlays";
       recursive = true;
     };
+
+    dataFile."qutebrowser/userscripts/org_capture".source = "${repoRoot}/share/qutebrowser/userscripts/org_capture";
+    dataFile."qutebrowser/userscripts/yank_org_link".source = "${repoRoot}/share/qutebrowser/userscripts/yank_org_link";
   };
 
   gtk = {

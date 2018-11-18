@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+ES_SOCK=/tmp/emacs1000/server
+EC_BIN=/home/ben/bin/emc-wrap
+# To disable template selection dialog add template parameter as follows.
+# PROTO_FMT="org-protocol:///capture?template=w&url=$QUTE_URL&title=$QUTE_TITLE"
+# Otherwise this can be controlled from Emacs with:
+# (setq org-protocol-default-template-key "w") (recommended).
+PROTO_FMT="org-protocol:///capture?url=$QUTE_URL&title=$QUTE_TITLE"
+
+$EC_BIN --eval '(unless (featurep (quote org-protocol)) (require (quote org-protocol)))'
+$EC_BIN -n -a "" "$PROTO_FMT" --socket-name=$ES_SOCK
