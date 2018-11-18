@@ -73,6 +73,7 @@ in rec {
     #         hpfix = homePrefix;
     #         infix = interfixPath;}));
 
+    file.".zshrc".source = "${repoRoot}/zshrc";
     file.".commonrc.sh".source = "${repoRoot}/commonrc.sh";
     file.".profile".source = "${repoRoot}/profile";
     file.".zprofile".source = "${repoRoot}/zprofile";
