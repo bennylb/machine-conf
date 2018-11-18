@@ -44,8 +44,8 @@
         '(("~/.emacs.d" . 0)
           ("~/src/git" . 1)
           ("~/src/twincam-web-store" . 1)
-          ("~/src/nixpkgs" . 1)
-          ("~/machine-conf" . 1))))
+          ("~/machine-conf" . 1)
+          )))
 
 ;; (setq +magit-hub-enable-by-default t)
 
