@@ -79,6 +79,34 @@ in rec {
     file.".tmux.conf".source = "${repoRoot}/tmux.conf";
     file.".xsession".source = "${repoRoot}/xsession";
     file.".Xresources".source = "${repoRoot}/Xresources";
+    file."bin/emc" = {
+      source = "${repoRoot}/bin/emc.sh";
+      # executable = true;
+    };
+    file."bin/emd" = {
+      source = "${repoRoot}/bin/emd.sh";
+      # executable = true;
+    };
+    file."bin/emw" = {
+      source = "${repoRoot}/bin/emw.sh";
+      # executable = true;
+    };
+    file."bin/emc-wrap" = {
+      source = "${repoRoot}/bin/emc-wrap.sh";
+      # executable = true;
+    };
+    file."bin/restart-emacs" = {
+      source = "${repoRoot}/bin/restart-emacs.sh";
+      # executable = true;
+    };
+    file."bin/touchpad" = {
+      source = "${repoRoot}/bin/touchpad.sh";
+      # executable = true;
+    };
+    file."bin/qutebrowser" = {
+      source = "${repoRoot}/bin/qutebrowser.sh";
+      # executable = true;
+    };
 
     # packages = [];
   };
@@ -86,26 +114,22 @@ in rec {
   xdg = {
     enable = true;
 
-    # configHome = "${homeDir}/.config";
-    # cacheHome  = "${homeDir}/.cache";
-    # dataHome   = "${homeDir}/.local/share";
-
-    configFile."alacritty/alacritty.yml".source = "${tilde}/config/alacritty/alacritty.yml";
-    configFile."clipster/clipster.ini".source = "${tilde}/config/clipster/clipster.ini";
-    configFile."i3/config".source = "${tilde}/config/i3/config";
-    configFile."i3/pystatus.py".source = "${tilde}/config/i3/pystatus.py";
-    configFile."mpv/mpv.conf".source = "${tilde}/config/mpv/mpv.conf";
-    configFile."mpv/scripts/dev/select-ao.lua".source = "${tilde}/config/mpv/scripts/dev/select-ao.lua";
-    configFile."qutebrowser/bookmarks/urls".source = "${tilde}/config/qutebrowser/bookmarks/urls";
-    configFile."qutebrowser/config.py".source = "${tilde}/config/qutebrowser/config.py";
-    configFile."qutebrowser/quickmarks".source = "${tilde}/config/qutebrowser/quickmarks";
+    configFile."alacritty/alacritty.yml".source = "${repoRoot}/config/alacritty/alacritty.yml";
+    configFile."clipster/clipster.ini".source = "${repoRoot}/config/clipster/clipster.ini";
+    configFile."i3/config".source = "${repoRoot}/config/i3/config";
+    configFile."i3/pystatus.py".source = "${repoRoot}/config/i3/pystatus.py";
+    configFile."mpv/mpv.conf".source = "${repoRoot}/config/mpv/mpv.conf";
+    configFile."mpv/scripts/dev/select-ao.lua".source = "${repoRoot}/config/mpv/scripts/dev/select-ao.lua";
+    configFile."qutebrowser/bookmarks/urls".source = "${repoRoot}/config/qutebrowser/bookmarks/urls";
+    configFile."qutebrowser/config.py".source = "${repoRoot}/config/qutebrowser/config.py";
+    configFile."qutebrowser/quickmarks".source = "${repoRoot}/config/qutebrowser/quickmarks";
     configFile."direnv/direnvrc".source = "${repoRoot}/example-nix/tools/direnv/direnvrc";
     configFile."doom" = {
-      source = "${tilde}/config/doom";
+      source = "${repoRoot}/config/doom";
       recursive = true;
     };
     configFile."nixpkgs/overlays" = {
-      source = "${tilde}/config/nixpkgs/overlays";
+      source = "${repoRoot}/config/nixpkgs/overlays";
       recursive = true;
     };
   };
