@@ -35,9 +35,9 @@ fi
 
 # Aliases
 alias sudo="sudo "
-alias cat="bat --style=plain"
+# alias cat="bat --style=plain"
 # alias less="less -R"
-alias less="bat --style=plain"
+# alias less="bat --style=plain"
 alias fd="fd"
 alias du="du -h"
 # systemctl
@@ -52,6 +52,11 @@ alias nxcatpkg="EDITOR=bat nix edit"
 alias clpdh="clipster -c --erase-entire-board"
 alias shrld="exec $SHELL -l"
 alias saleor="make -f dev-example.Makefile"
+
+# Use function to create the respective alias as completion fails
+# when using a plain alias.
+cat() { command bat --style=plain "$@" }
+less() { command bat --style=plain "$@" }
 
 
 # Functions
