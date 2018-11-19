@@ -115,6 +115,8 @@ in rec {
 
     dataFile."qutebrowser/userscripts/org_capture".source = "${repoRoot}/share/qutebrowser/userscripts/org_capture";
     dataFile."qutebrowser/userscripts/yank_org_link".source = "${repoRoot}/share/qutebrowser/userscripts/yank_org_link";
+    dataFile."zsh/site-functions/prompt_pure_setup".source = "${repoRoot}/pure/pure.zsh";
+    dataFile."zsh/site-functions/async".source = "${repoRoot}/pure/async.zsh";
   };
 
   gtk = {
