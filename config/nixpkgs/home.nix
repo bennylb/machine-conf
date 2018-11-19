@@ -76,6 +76,7 @@ in rec {
     file.".zshrc".source = "${repoRoot}/zshrc";
     file.".commonrc.sh".source = "${repoRoot}/commonrc.sh";
     file.".profile".source = "${repoRoot}/profile";
+    file.".bash_profile".source = "${repoRoot}/bash_profile";
     file.".zprofile".source = "${repoRoot}/zprofile";
     file.".tmux.conf".source = "${repoRoot}/tmux.conf";
     file.".xsession".source = "${repoRoot}/xsession";
