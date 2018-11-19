@@ -7,7 +7,7 @@ if which tmux >/dev/null 2>&1; then
           true
           ;;
         *)
-          TERM=screen-256color
+          # TERM=tmux-256color
           test -z "$TMUX" && (tmux attach || tmux new-session)
           ;;
     esac
