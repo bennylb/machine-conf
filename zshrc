@@ -3,6 +3,7 @@ antigen use oh-my-zsh
 
 antigen bundle common-aliases
 antigen bundle git
+antigen bundle colored-man-pages
 antigen bundle ~/machine-conf/example-nix/tools/oh-my-zsh/plugins/direnv
 # antigen bundle mafredri/zsh-async
 # antigen bundle sindresorhus/pure
