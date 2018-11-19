@@ -24,6 +24,9 @@ if [[ true ]]; then
     gpg-connect-agent updatestartuptty /bye >/dev/null
 
     unset SSH_AGENT_PID
+    # if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+    #     export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+    # fi
     if [ -z "$SSH_AUTH_SOCK" ]; then
         export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
     fi
@@ -48,9 +51,10 @@ alias clpdh="clipster -c --erase-entire-board"
 alias shrld="exec $SHELL -l"
 alias saleor="make -f dev-example.Makefile"
 
-# Use function to create the respective alias as for unkown reasons
-# completion fails when using a plain alias.
-less() { command bat --style=plain "$@"; }
+# Use function to create the respective alias as completion fails
+# when using a plain alias.
+cat() { command bat --style=plain "$@" }
+less() { command bat --style=plain "$@" }
 
 
 # Functions
@@ -80,7 +84,7 @@ EOF
     fi
 }
 
-nixify_skel() {
+nixify_create() {
     nixify
 
     if [ ! -e shell.nix ]; then
