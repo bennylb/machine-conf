@@ -80,6 +80,7 @@ in rec {
     file.".tmux.conf".source = "${repoRoot}/tmux.conf";
     file.".xsession".source = "${repoRoot}/xsession";
     file.".Xresources".source = "${repoRoot}/Xresources";
+    file.".fehbg".source = "${repoRoot}/fehbg";
     file."bin/emc".source = "${repoRoot}/bin/emc.sh";
     file."bin/emd".source = "${repoRoot}/bin/emd.sh";
     file."bin/emw".source = "${repoRoot}/bin/emw.sh";

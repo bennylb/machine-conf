@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# bgpath=$(nix-instantiate --eval -E '"${(import <nixpkgs> {}).nixos-artwork.wallpapers.gnome-dark}/share/artwork/gnome/Gnome_Dark.png"')
+# bash -c "feh --no-fehbg --bg-fill $bgpath"
+
+feh --no-fehbg --bg-center ~/Pictures/nix-wallpaper-simple-dark-gray_bottom_1920x1080.png
