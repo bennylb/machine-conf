@@ -19,6 +19,4 @@ fpath=( "$HOME/.local/share/zsh/site-functions" $fpath )
 autoload -Uz promptinit; promptinit
 prompt pure
 
-# PROMPT='%(13V.%F{227}[%13v]%f .)'$PROMPT
-
-# emulate sh -c 'source ~/.commonrc.sh'
+emulate sh -c 'source ~/.commonrc.sh'

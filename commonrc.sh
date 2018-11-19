@@ -4,11 +4,12 @@
 if which tmux >/dev/null 2>&1; then
     case "$TERM" in
         linux | eterm-color | xterm-kitty)
-            true
-            ;;
+          true
+          ;;
         *)
-            test -z "$TMUX" && (tmux attach || tmux new-session)
-            ;;
+          TERM=screen-256color
+          test -z "$TMUX" && (tmux attach || tmux new-session)
+          ;;
     esac
 fi
 
