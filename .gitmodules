@@ -1,6 +1,6 @@
 [submodule "example-nix"]
 	path = example-nix
-	url = https://github.com/shajra/example-nix
+	url = https://github.com/bennylb/example-nix.git
 [submodule "pure"]
 	path = pure
-	url = https://github.com/sindresorhus/pure.git
+	url = https://github.com/bennylb/pure.git
