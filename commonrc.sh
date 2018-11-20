@@ -47,7 +47,6 @@ alias nxcatpkg="EDITOR=bat nix edit"
 # Erase clipster's history
 alias clpdh="clipster -c --erase-entire-board"
 alias shrld="exec $SHELL -l"
-alias saleor="make -f dev-example.Makefile"
 
 # Use function to create the respective alias as completion fails
 # when using a plain alias.
