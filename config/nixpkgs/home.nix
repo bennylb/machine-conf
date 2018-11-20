@@ -62,6 +62,10 @@ in rec {
   services = {
     # gnome-keyring.enable = true;
     network-manager-applet.enable = true;
+    gpg-agent = {
+      enable = true;
+      enableSshSupport = true;
+    };
   };
 
   home = {
