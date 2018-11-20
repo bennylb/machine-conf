@@ -8,6 +8,6 @@ if which home-manager; then
     home-manager switch
 else
     echo "home-manager doesn't seem to be installed."
-    echo "System configuration must first be installed to make home-manager available."
+    echo "Install the system first to make home-manager available."
     exit 1
 fi
