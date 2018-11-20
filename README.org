@@ -1,6 +1,6 @@
 #+TITLE: machine-conf
 
-Fist clone this repo:
+First clone this repo:
 
 #+BEGIN_SRC sh
 git clone https://github.com/bennylb/machine-conf.git
