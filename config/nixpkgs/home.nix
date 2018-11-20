@@ -73,6 +73,7 @@ in rec {
     #         hpfix = homePrefix;
     #         infix = interfixPath;}));
 
+    file.".nixpkgs/config.nix".source = "${repoRoot}/config.nix";
     file.".zshrc".source = "${repoRoot}/zshrc";
     file.".commonrc.sh".source = "${repoRoot}/commonrc.sh";
     file.".profile".source = "${repoRoot}/profile";
