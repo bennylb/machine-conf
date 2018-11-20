@@ -1,4 +1,4 @@
-#+TITLE: README
+#+TITLE: machine-conf
 
 Fist clone this repo:
 
