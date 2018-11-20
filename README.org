@@ -1,3 +1,21 @@
 #+TITLE: README
 
-Just the beginnings of personal configuration files for my machines.
+Fist clone this repo:
+
+#+BEGIN_SRC sh
+git clone https://github.com/bennylb/machine-conf.git
+#+END_SRC
+
+Then link the configuration.nix:
+
+#+BEGIN_SRC sh
+cd "$HOME"/machine-conf
+./link-configuration.sh
+#+END_SRC
+
+Install the system and then as a regular user run:
+
+#+BEGIN_SRC sh
+cd "$HOME"/machine-conf
+./home-generate.sh
+#+END_SRC
