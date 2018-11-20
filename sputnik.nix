@@ -8,8 +8,6 @@ let in
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    # "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos"
-    # ./hosts.nix
   ];
 
   fileSystems."/boot" = {
@@ -320,9 +318,6 @@ let in
       pkgs.liberation_ttf
       pkgs.ubuntu_font_family
       pkgs.source-code-pro
-      # pkgs.hack-font
-      # pkgs.fira-mono
-      # pkgs.fira-code
     ];
   };
 
@@ -333,14 +328,6 @@ let in
     extraGroups = [ "wheel" "networkmanager" "docker" ];
     shell = pkgs.zsh;
   };
-
-  # home-manager.users.ben = {
-  #   programs = {
-  #     zsh = {
-  #       enable = true;
-  #     };
-  #   };
-  # };
 
   # The NixOS release to be compatible with for stateful data such as databases.
   # system.stateVersion = "16.09";
