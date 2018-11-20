@@ -6,7 +6,7 @@ Fist clone this repo:
 git clone https://github.com/bennylb/machine-conf.git
 #+END_SRC
 
-Then link the configuration.nix:
+Then as root link configuration.nix:
 
 #+BEGIN_SRC sh
 cd "$HOME"/machine-conf
