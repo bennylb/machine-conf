@@ -75,6 +75,7 @@ in rec {
 
     file = {
       ".nixpkgs/config.nix".source = "${repoRoot}/config.nix";
+      ".bashrc".source = "${repoRoot}/bashrc";
       ".zshrc".source = "${repoRoot}/zshrc";
       ".shrc".source = "${repoRoot}/shrc";
       ".profile".source = "${repoRoot}/profile";

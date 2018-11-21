@@ -231,6 +231,12 @@ let in
     emacs.package = pkgs.emacs26;
     emacs.install = true;
     unclutter-xfixes.enable = false;
+    redshift = {
+      enable = true;
+      provider = "manual";
+      latitude = "-38.1";
+      longitude = "145.2";
+    };
   };
 
   systemd.services = {
