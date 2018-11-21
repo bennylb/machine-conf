@@ -1,7 +1,4 @@
-#
-# ~/.bash_profile
-#
-
+# -*- mode: sh; eval: (sh-set-shell "bash"); -*-
 # Contents of ~/.bash_profile will only be read when starting
 # a login shell (when logging in to your window manager).
 
@@ -12,4 +9,5 @@
 # opened so set -o vi needs to placed in ~/.bashrc.
 
 . ~/.profile
+
 case $- in *i*) . ~/.bashrc;; esac

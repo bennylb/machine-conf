@@ -62,10 +62,6 @@ in rec {
   services = {
     # gnome-keyring.enable = true;
     network-manager-applet.enable = true;
-    gpg-agent = {
-      enable = true;
-      enableSshSupport = true;
-    };
   };
 
   home = {
@@ -88,6 +84,8 @@ in rec {
       ".xsession".source = "${repoRoot}/xsession";
       ".Xresources".source = "${repoRoot}/Xresources";
       ".fehbg".source = "${repoRoot}/fehbg";
+      ".gnupg/gpg-agent.conf".source = "${repoRoot}/gnupg/gpg-agent.conf";
+      ".gnupg/gpg.conf".source = "${repoRoot}/gnupg/gpg.conf";
       "bin/emc".source = "${repoRoot}/bin/emc.sh";
       "bin/emd".source = "${repoRoot}/bin/emd.sh";
       "bin/emw".source = "${repoRoot}/bin/emw.sh";

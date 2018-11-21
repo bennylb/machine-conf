@@ -1,3 +1,4 @@
+# -*- mode: sh; eval: (sh-set-shell "bash"); -*-
 # ~/.profile: executed by the command interpreter for login shells.
 # This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
 # exists.
@@ -26,20 +27,16 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 
 # if not on nixos
-OS_ID=`sed -n 's/^ID=//p' /etc/os-release`
+# OS_ID=`sed -n 's/^ID=//p' /etc/os-release`
+# if [[ "$OS_ID" != "nixos" ]]; then echo true; fi
 
-# if [[ "$OS_ID" != "nixos" ]]; then
-# For the time being ssh auth sock will need to be set here as the nixos
-# module enabling the support is problematic.
-if [[ true ]]; then
-    # Use gpg-agent as ssh-agent
-    export GPG_TTY=$(tty)
-    gpg-connect-agent updatestartuptty /bye >/dev/null
+# Use gpg-agent as ssh-agent
+export GPG_TTY=$(tty)
+gpg-connect-agent updatestartuptty /bye >/dev/null
 
-    unset SSH_AGENT_PID
-    if [ -z "$SSH_AUTH_SOCK" ]; then
-        export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-    fi
+unset SSH_AGENT_PID
+if [ -z "$SSH_AUTH_SOCK" ]; then
+    export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 fi
 
 # Try and use Emacs client as default editor where possible

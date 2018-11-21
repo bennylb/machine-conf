@@ -1,1 +1,1 @@
-emulate sh -c 'source ~/.profile'
+emulate sh -c '. ~/.profile'

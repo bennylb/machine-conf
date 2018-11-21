@@ -1,5 +1,11 @@
 # Shell agnostic configuration to be sourced from your shell rc.
 
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+    *) return;;
+esac
+
 # TMUX
 if which tmux >/dev/null 2>&1; then
     case "$TERM" in

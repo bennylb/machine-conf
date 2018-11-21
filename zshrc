@@ -1,3 +1,4 @@
+# -*- mode: sh; eval: (sh-set-shell "zsh"); -*-
 # antigen config
 antigen use oh-my-zsh
 
@@ -20,4 +21,4 @@ fpath=( "$HOME/.local/share/zsh/site-functions" $fpath )
 autoload -Uz promptinit; promptinit
 prompt pure
 
-emulate sh -c 'source ~/.commonrc.sh'
+emulate sh -c '. ~/.commonrc.sh'
