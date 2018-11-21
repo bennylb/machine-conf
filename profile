@@ -1,4 +1,5 @@
 # -*- mode: sh; eval: (sh-set-shell "bash"); -*-
+#
 # ~/.profile: executed by the command interpreter for login shells.
 # This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
 # exists.
@@ -15,13 +16,13 @@
 # For anything that needs to be available each time a new 
 # terminal (non-login shell) is started place it in ~/.bashrc.
 
-# If running bash
-if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-	      . "$HOME/.bashrc"
-    fi
-fi
+# # If running bash
+# if [ -n "$BASH_VERSION" ]; then
+#     # include .bashrc if it exists
+#     if [ -f "$HOME/.bashrc" ]; then
+# 	      . "$HOME/.bashrc"
+#     fi
+# fi
 
 # # Use gpg-agent as ssh-agent
 # export GPG_TTY=$(tty)
