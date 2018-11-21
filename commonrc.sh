@@ -1,3 +1,4 @@
+# -*- mode: sh; eval: (sh-set-shell "bash") -*-
 # Shell agnostic configuration to be sourced from your shell rc.
 
 # If not running interactively, don't do anything
