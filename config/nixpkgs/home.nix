@@ -81,6 +81,7 @@ in rec {
       ".bash_profile".source = "${repoRoot}/bash_profile";
       ".zprofile".source = "${repoRoot}/zprofile";
       ".tmux.conf".source = "${repoRoot}/tmux.conf";
+      ".xprofile".source = "${repoRoot}/xprofile";
       ".xsession".source = "${repoRoot}/xsession";
       ".Xresources".source = "${repoRoot}/Xresources";
       ".fehbg".source = "${repoRoot}/fehbg";
