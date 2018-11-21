@@ -1,4 +1,5 @@
 # -*- mode: sh; eval: (sh-set-shell "bash") -*-
+#
 # Shell agnostic configuration to be sourced from your shell rc.
 
 # If not running interactively, don't do anything
@@ -6,6 +7,8 @@ case $- in
     *i*) ;;
     *) return;;
 esac
+
+. ~/.profile
 
 # TMUX
 if which tmux >/dev/null 2>&1; then

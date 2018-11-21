@@ -5,6 +5,7 @@
 # For anything that needs to be available each time a new 
 # terminal (non-login shell) is started place it in ~/.bashrc.
 
-. ~/.profile
-
 case $- in *i*) . ~/.bashrc;; esac
+
+# bash should instead source ~/.commonrc.sh to inherit ~/.profile.
+# . ~/.profile

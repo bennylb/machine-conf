@@ -21,4 +21,4 @@ fpath=( "$HOME/.local/share/zsh/site-functions" $fpath )
 autoload -Uz promptinit; promptinit
 prompt pure
 
-emulate sh -c '. ~/.commonrc.sh'
+emulate sh -c '. ~/.shrc'
