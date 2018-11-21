@@ -16,14 +16,6 @@
 # For anything that needs to be available each time a new 
 # terminal (non-login shell) is started place it in ~/.bashrc.
 
-# # If running bash
-# if [ -n "$BASH_VERSION" ]; then
-#     # include .bashrc if it exists
-#     if [ -f "$HOME/.bashrc" ]; then
-# 	      . "$HOME/.bashrc"
-#     fi
-# fi
-
 # # Use gpg-agent as ssh-agent
 # export GPG_TTY=$(tty)
 # gpg-connect-agent updatestartuptty /bye >/dev/null
