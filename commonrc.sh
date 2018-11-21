@@ -84,6 +84,6 @@ pkgs.mkShell {
   ];
 }
 EOF
-        $EDITOR shell.nix
+        ${EDITOR:-vim} shell.nix
     fi
 }

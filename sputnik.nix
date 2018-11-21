@@ -85,8 +85,8 @@ let in
     fd
     ripgrep
     bat
+    tealdeer
     powertop
-    cheat
     rxvt_unicode
     xfce.terminal
     # web/network
