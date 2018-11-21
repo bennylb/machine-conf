@@ -4,21 +4,18 @@
 # exists.
 # see /usr/share/doc/bash/examples/startup-files for examples.
 # the files are located in the bash-doc package.
-
+#
 # the default umask is set in /etc/profile; for setting the umask
 # for ssh logins, install and configure the libpam-umask package.
 # umask 022
 #
 # Contents of ~/.profile will only be read when starting
 # a login shell (when logging in to your window manager).
-
-# For anything that needs to be loaded each time a new terminal
-# (non-login shell) is started place it ~/.bashrc.
 #
-# For example vi mode nees to be loaded evertime a terminal is
-# opened so set -o vi needs to placed in ~/.bashrc.
+# For anything that needs to be available each time a new 
+# terminal (non-login shell) is started place it in ~/.bashrc.
 
-# if running bash
+# If running bash
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
@@ -26,7 +23,7 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-# if not on nixos
+# If not on nixos
 # OS_ID=`sed -n 's/^ID=//p' /etc/os-release`
 # if [[ "$OS_ID" != "nixos" ]]; then echo true; fi
 
