@@ -45,6 +45,8 @@ c.completion.cmd_history_max_items = 100
 # c.completion.web_history_max_items = -1
 c.content.autoplay = False
 
+c.auto_save.session = True
+
 # MPV
 config.bind(',m', 'hint links spawn mpv {hint-url}')
 # view_in_mpv script needs be rewritten to allow the
