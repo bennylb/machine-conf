@@ -6,6 +6,8 @@ let
 
   homeDir      = builtins.getEnv "HOME";
   interfixPath = "config";
+  emacsDir     = "${homeDir}/.emacs.d";
+  doomDir  = "${emacsDir}";
   repoName     = "machine-conf";
   homePrefix   = "${homeDir}";
   repoRoot     = "${homeDir}/${repoName}";
@@ -95,6 +97,9 @@ in rec {
       "bin/restart-emacs".source = "${repoRoot}/bin/restart-emacs.sh";
       "bin/touchpad".source = "${repoRoot}/bin/touchpad.sh";
       "bin/qutebrowser".source = "${repoRoot}/bin/qutebrowser.sh";
+      "bin/doom".source = "${doomDir}/bin/doom";
+      "bin/doom-doctor".source = "${doomDir}/bin/doom-doctor";
+      "bin/nixos-switch".source = "${repoRoot}/bin/nixos-switch.sh";
     };
 
     # packages = [];

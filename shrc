@@ -52,7 +52,7 @@ nixify() {
         cat > .envrc <<'EOF'
 use_nix_gcrooted -c
 
-# Set addtional variables here
+# Set addtional variables below
 #
 # e.g
 #
@@ -73,7 +73,7 @@ EOF
 }
 
 nixify_create() {
-    nixify
+    # nixify
 
     if [ ! -e shell.nix ]; then
         cat > shell.nix <<'EOF'

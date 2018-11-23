@@ -121,7 +121,7 @@ let in
     # (hunspellWithDicts [ hunspellDicts.en-gb-ise ])
     (aspellWithDicts (ps: [ ps.en ]))
     # development
-    emacs26
+    emacs
     vim
     gnumake
     git
