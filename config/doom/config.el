@@ -64,4 +64,6 @@
    :channels ("#nixos")
    ))
 
+(setq +pretty-code-enabled-modes '(emacs-lisp-mode))
+
 (load! "bindings")
