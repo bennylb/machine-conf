@@ -25,6 +25,7 @@ esac
 
 # Aliases
 alias sudo="sudo "
+# alias bat="bat --style=plain"
 # alias less="less -R"
 alias fd="fd"
 alias du="du -h"
@@ -42,6 +43,7 @@ alias shrld="exec $SHELL -l"
 
 # Use function to create the respective alias as completion fails
 # when using a plain alias.
+bat() { command bat --style=plain "$@"; }
 less() { command bat --style=plain "$@"; }
 
 
