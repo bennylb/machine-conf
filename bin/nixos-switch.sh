@@ -9,13 +9,13 @@ NXPKGS_REPO="$HOME/src/git/nixpkgs"
 NXPKGS_STATUS="$(cd $NXPKGS_REPO && git status -b --porcelain=v2)"
 NXPKGS_BRANCH="$(echo "$NXPKGS_STATUS" | awk '/head/ { print $3 }')"
 
-echo -e "Current nixpkgs branch is $NXPKGS_BRANCH.\n"
+echo -e "Current nixpkgs branch is: $NXPKGS_BRANCH.\n"
 
-read -p "Confirm this is the correct branch to continue Y/n? " -n 1 -r
-echo
+read -p "Is this the correct branch to rebuild the system? [Y/n]: " -n 1 -r
+echo -e "\n"
 if [[ ! $REPLY =~ ^[Yy]$ ]]
 then
     [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1 # handle exits from shell or function but don't exit interactive shell
 fi
 
-nixos-rebuild -I nixpkgs="$NXPKGS_REPO" switch
+exec nixos-rebuild -I nixpkgs="$NXPKGS_REPO" switch
