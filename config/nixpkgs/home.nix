@@ -137,6 +137,11 @@ in rec {
     };
   };
 
+  xsession.pointerCursor = {
+    package = pkgs.vanilla-dmz;
+    name = "Vanilla-DMZ";
+  };
+
   gtk = {
     enable         = true;
     font.name      = "Ubuntu 11";
