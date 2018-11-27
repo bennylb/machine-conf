@@ -137,10 +137,10 @@ in rec {
     };
   };
 
-  xsession.pointerCursor = {
-    package = pkgs.vanilla-dmz;
-    name = "Vanilla-DMZ";
-  };
+  # xsession.pointerCursor = {
+  #   package = pkgs.vanilla-dmz;
+  #   name = "Vanilla-DMZ";
+  # };
 
   gtk = {
     enable         = true;

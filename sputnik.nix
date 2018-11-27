@@ -96,6 +96,7 @@ let in
     youtube-dl
     ncat
     wget
+    nethogs
     # security
     openssl
     gnutls
