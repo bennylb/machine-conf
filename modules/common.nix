@@ -108,7 +108,7 @@
     zsh.enableCompletion = true;
     zsh.interactiveShellInit = ''
       # source ${pkgs.grml-zsh-config}/etc/zsh/zshrc
-      # source ${pkgs.antigen}/share/antigen/antigen.zsh
+      source ${pkgs.antigen}/share/antigen/antigen.zsh
     '';
     fish.enable = true;
     tmux.enable = true;

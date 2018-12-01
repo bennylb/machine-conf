@@ -9,8 +9,7 @@
     partOf = [ "graphical-session.target" ];
     serviceConfig = {
       Environment = "DISPLAY=:0";
-      # ExecStartPre = "${pkgs.xorg.xset}/bin/xset s 600";
-      ExecStart = "${pkgs.xss-lock}/bin/xss-lock -l -- ${pkgs.i3lock}/bin/i3lock -n -i /home/ben/Pictures/nix-wallpaper-simple-dark-gray_bottom_1920x1080.png";
+      ExecStart = "${pkgs.xss-lock}/bin/xss-lock -l -- ${pkgs.i3lock}/bin/i3lock -n -i /home/ben/machine-conf/share/backgrounds/nix-wallpaper-simple-dark-gray_bottom_1920x1080.png";
       Restart = "always";
     };
   };
