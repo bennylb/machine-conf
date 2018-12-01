@@ -74,6 +74,12 @@ let in
     libva
   ];
 
+  nixpkgs = {
+    config = {
+      mpv.vaapiSupport = true;
+    };
+  };
+
   security = {
     pam.services.lightdm.enableGnomeKeyring = true;
     pam.services.lightdm-greeter.enableGnomeKeyring = true;

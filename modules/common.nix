@@ -75,7 +75,6 @@
 
     config = {
       allowUnfree = true;
-      mpv.vaapiSupport = true;
       # firefox.enableBrowserpass = true;
     };
   };
