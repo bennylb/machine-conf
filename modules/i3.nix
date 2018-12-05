@@ -17,7 +17,8 @@
   services.xserver.windowManager.i3 = {
     configFile = "/home/ben/.config/i3/config";
     extraPackages = with pkgs; [
-      i3pystatus
+      # i3pystatus
+      i3status-rust
       xorg.xbacklight
       xdg_utils
       xss-lock

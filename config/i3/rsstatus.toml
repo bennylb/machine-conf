@@ -1,0 +1,19 @@
+[[block]]
+block = "disk_space"
+path = "/"
+alias = "/"
+info_type = "available"
+unit = "GB"
+interval = 20
+
+[[block]]
+block = "battery"
+# format = "{power}W {percentage}% {time}"
+format = "{percentage}% {time}"
+upower = false
+interval = 10
+
+[[block]]
+block = "time"
+# format = "%a %-d %b %R"
+interval = 60

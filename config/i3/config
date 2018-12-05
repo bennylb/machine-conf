@@ -218,7 +218,8 @@ bindsym $mod+n bar hidden_state toggle
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3pystatus -c ~/.config/i3/pystatus.py
+        # status_command i3pystatus -c ~/.config/i3/pystatus.py
+        status_command i3status-rs ~/.config/i3/rsstatus.toml
         mode hide
         hidden_state hide
         modifier none

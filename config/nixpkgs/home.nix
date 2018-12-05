@@ -113,6 +113,7 @@ in rec {
       "clipster/clipster.ini".source = "${repoRoot}/config/clipster/clipster.ini";
       "i3/config".source = "${repoRoot}/config/i3/config";
       "i3/pystatus.py".source = "${repoRoot}/config/i3/pystatus.py";
+      "i3/rsstatus.toml".source = "${repoRoot}/config/i3/rsstatus.toml";
       "mpv/mpv.conf".source = "${repoRoot}/config/mpv/mpv.conf";
       "mpv/scripts/dev/select-ao.lua".source = "${repoRoot}/config/mpv/scripts/dev/select-ao.lua";
       "qutebrowser/bookmarks/urls".source = "${repoRoot}/config/qutebrowser/bookmarks/urls";
