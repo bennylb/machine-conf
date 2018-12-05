@@ -66,7 +66,7 @@
       :n  "M-s"   #'save-buffer
       :m  "A-j"   #'+default:multi-next-line
       :m  "A-k"   #'+default:multi-previous-line
-      :nv "C-SPC" #'+evil:fold-toggle
+      :nv "C-SPC" #'+evil/fold-toggle
       :gnvimr "M-v" #'clipboard-yank
 
       "C-x p"     #'+popup/other
@@ -97,6 +97,8 @@
       :n  "gr" #'+eval:region
       :n  "gR" #'+eval/buffer
       :v  "gR" #'+eval:replace-region
+      :nv "g-" #'+evil:narrow-buffer
+      :n  "g=" #'widen
       :v  "@"  #'+evil:apply-macro
       :n  "g@" #'+evil:apply-macro
       ;; repeat in visual mode (FIXME buggy)
@@ -492,7 +494,7 @@
 (map! :leader
       :desc "Ex command"            :nv ";"   #'evil-ex
       :desc "M-x"                   :nv "SPC" #'execute-extended-command
-      :desc "Switch other buffer"   :nv [tab] #'+my/switch-to-other-buffer
+      ;; :desc "Switch other buffer"   :nv [tab] #'+my/switch-to-other-buffer
       :desc "Pop up scratch buffer" :nv "x"   #'doom/open-scratch-buffer
       :desc "Org Capture"           :nv "X"   #'org-capture
 
@@ -529,7 +531,6 @@
         :desc "Todo"                  :nv "t" #'hl-todo-previous
         :desc "Error"                 :nv "e" #'previous-error
         :desc "Workspace"             :nv "w" #'+workspace/switch-left
-        :desc "Smart jump"            :nv "h" #'smart-backward
         :desc "Spelling error"        :nv "s" #'evil-prev-flyspell-error
         :desc "Spelling correction"   :n  "S" #'flyspell-correct-previous-word-generic)
 
@@ -559,7 +560,7 @@
         :desc "Symbols across buffers" :nv "I" #'imenu-anywhere
         :desc "Online providers"       :nv "o" #'+lookup/online-select)
 
-      (:desc "workspace" :prefix "z"
+      (:desc "workspace" :prefix [tab]
         :desc "Display tab bar"          :n [tab] #'+workspace/display
         :desc "New workspace"            :n "n"   #'+workspace/new
         :desc "Load workspace from file" :n "l"   #'+workspace/load
@@ -594,12 +595,15 @@
           :desc "Switch buffer"           :n "b" #'switch-to-buffer)
         :desc "Kill buffer"             :n "k" #'kill-this-buffer
         :desc "Kill other buffers"      :n "o" #'doom/kill-other-buffers
+        :desc "Toggle narrowing"        :nv "-" #'doom/clone-and-narrow-buffer
+        :desc "Next buffer"             :n "n" #'next-buffer
+        :desc "Previous buffer"         :n "p" #'previous-buffer
+        :desc "Next buffer"             :n "]" #'next-buffer
+        :desc "Previous buffer"         :n "[" #'previous-buffer
         :desc "Save buffer"             :n "s" #'save-buffer
         :desc "Buffer read only"        :n "w" #'read-only-mode
         :desc "Pop scratch buffer"      :n "x" #'doom/open-scratch-buffer
         :desc "Bury buffer"             :n "z" #'bury-buffer
-        :desc "Next buffer"             :n "]" #'next-buffer
-        :desc "Previous buffer"         :n "[" #'previous-buffer
         :desc "Sudo edit this file"     :n "S" #'doom/sudo-this-file)
 
       (:desc "code" :prefix "c"
@@ -630,14 +634,14 @@
         :desc "Browse emacs.d"              :n "E" #'+default/browse-emacsd
         :desc "Recent files"                :n "r" #'recentf-open-files
         :desc "Recent project files"        :n "R" #'projectile-recentf
-        :desc "Find file read only"         :n "R" #'find-file-read-only
+        :desc "Find file read only"         :n "W" #'find-file-read-only
         :desc "Yank filename"               :n "y" #'+default/yank-buffer-filename
         :desc "Find file in private config" :n "p" #'+default/find-in-config
         :desc "Browse private config"       :n "P" #'+default/browse-config
         :desc "Delete this file"            :n "X" #'doom/delete-this-file)
 
       (:desc "git" :prefix "g"
-        :desc "Magit blame"           :n  "b" #'magit-blame
+        :desc "Magit blame"           :n  "b" #'magit-blame-addition
         :desc "Magit commit"          :n  "c" #'magit-commit
         :desc "Magit clone"           :n  "C" #'+magit/clone
         :desc "Magit dispatch"        :n  "d" #'magit-dispatch-popup
@@ -645,6 +649,7 @@
         :desc "Magit status"          :n  "g" #'magit-status
         :desc "Magit file delete"     :n  "x" #'magit-file-delete
         :desc "List gists"            :n  "G" #'+gist:list
+        :desc "MagitHub dispatch"     :n  "h" #'magithub-dispatch-popup
         :desc "Initialize repo"       :n  "i" #'magit-init
         :desc "Browse issues tracker" :n  "I" #'+vc/git-browse-issues
         :desc "Magit buffer log"      :n  "l" #'magit-log-buffer-file
@@ -675,7 +680,7 @@
         :desc "Describe key"          :n  "k" #'describe-key
         :desc "Find documentation"    :n  "K" #'+lookup/documentation
         :desc "Find library"          :n  "l" #'find-library
-        :desc "Command log"           :n  "L" #'clm/toggle-command-log-buffer
+        :desc "Command log"           :n  "L" #'global-command-log-mode
         :desc "View *Messages*"       :n  "m" #'view-echo-area-messages
         :desc "Describe mode"         :n  "M" #'describe-mode
         :desc "Toggle profiler"       :n  "p" #'doom/toggle-profiler
@@ -696,11 +701,7 @@
         (:when (featurep! :completion ivy)
           :desc "From kill-ring"        :nv "y" #'counsel-yank-pop
           :desc "From evil registers"   :nv "r" #'counsel-evil-registers)
-        :desc "New snippet"           :n  "n" #'yas-new-snippet
-        :desc "Insert snippet"        :nv "i" #'yas-insert-snippet
-        :desc "Find snippet"          :n  "s" #'+default/find-in-snippets
-        :desc "Find snippet for mode" :n  "S" #'+default/browse-snippets
-        :desc "Find global snippet"   :n  "/" #'yas-visit-snippet-file)
+        :desc "From snippet"        :nv "s" #'yas-insert-snippet)
 
       (:desc "jump" :prefix "j"
         :nv "j" #'avy-goto-char-timer)
@@ -779,6 +780,15 @@
           :desc "Diff local & remote"    :n "D" #'ssh-deploy-diff-handler
           :desc "Browse remote files"    :n "." #'ssh-deploy-browse-remote-handler
           :desc "Detect remote changes"  :n ">" #'ssh-deploy-remote-changes-handler))
+
+      (:when (featurep! :feature snippets)
+        (:desc "snippets" :prefix "a"
+          :desc "New snippet"           :n  "n" #'yas-new-snippet
+          :desc "Insert snippet"        :nv "i" #'yas-insert-snippet
+          :desc "Jump to mode snippet"  :n  "/" #'yas-visit-snippet-file
+          :desc "Jump to snippet"       :n  "s" #'+snippets/find-file
+          :desc "Browse snippets"       :n  "S" #'+snippets/browse
+          :desc "Reload snippets"       :n  "r" #'yas-reload-all))
 
       (:desc "toggle" :prefix "t"
         :desc "Flyspell"               :n "s" #'flyspell-mode
