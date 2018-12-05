@@ -37,12 +37,12 @@
     pass
     # media/graphics
     mpv
-    (inkscape.override { scourSupport = true; })
+    inkscape
     # misc
     # (hunspellWithDicts [ hunspellDicts.en-gb-ise ])
     (aspellWithDicts (ps: [ ps.en ]))
     # development
-    emacs
+    emacs26
     vim
     gnumake
     git
