@@ -41,7 +41,8 @@
 
 (after! magit
   (setq magit-repository-directories
-        '(("~/.emacs.d" . 0)
+        '(
+          ("~/.emacs.d" . 0)
           ("~/src/git" . 1)
           ("~/src/twincam-web-store" . 1)
           ("~/machine-conf" . 1)

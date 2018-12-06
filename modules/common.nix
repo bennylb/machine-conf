@@ -49,6 +49,7 @@
     # grml-zsh-config
     antigen
     direnv
+    fasd
     # nix pkg management
     home-manager
     nox
