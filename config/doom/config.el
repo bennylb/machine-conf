@@ -2,15 +2,15 @@
 
 (setq doom-font (font-spec :family "Source Code Pro" :size 15))
 
-(setq ivy-re-builders-alist
-        '((counsel-ag . ivy--regex-plus)
-          (counsel-grep . ivy--regex-plus)
-          (counsel-rg . ivy--regex-plus)
-          (swiper . ivy--regex-plus)
-          ;; (t . ivy--regex-ignore-order)
-          (t . ivy--regex-plus)
-          )
-        ivy-initial-inputs-alist nil)
+;; (setq ivy-re-builders-alist
+;;         '((counsel-ag . ivy--regex-plus)
+;;           (counsel-grep . ivy--regex-plus)
+;;           (counsel-rg . ivy--regex-plus)
+;;           (swiper . ivy--regex-plus)
+;;           ;; (t . ivy--regex-ignore-order)
+;;           (t . ivy--regex-plus)
+;;           )
+;;         ivy-initial-inputs-alist nil)
 
 ;; (def-package! auth-source-pass
 ;;   :after auth-source
@@ -47,8 +47,6 @@
           ("~/src/twincam-web-store" . 1)
           ("~/machine-conf" . 1)
           )))
-
-;; (setq +magit-hub-enable-by-default t)
 
 (after! company
   (setq ispell-alternate-dictionary
