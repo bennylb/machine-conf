@@ -15,6 +15,7 @@
   environment.systemPackages = with pkgs; [
     # system tools/utilities
     psmisc
+    file
     htop
     tree
     fd
