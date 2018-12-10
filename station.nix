@@ -76,67 +76,7 @@ let in
   # List packages installed in system profile. To search by name, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    # utilities
-    psmisc
-    unzip
-    gptfdisk
-    htop
-    tree
-    fd
-    ripgrep
-    bat
-    tealdeer
-    powertop
-    rxvt_unicode
-    xfce.terminal
-    # web/network
-    networkmanagerapplet
-    (qutebrowser.override { withPdfReader = false; withMediaPlayback = false; })
-    chromium
-    youtube-dl
-    ncat
-    wget
-    nethogs
-    # security
-    openssl
-    gnutls
-    gnupg
-    # (pinentry.override { libsecret = pkgs.libsecret; })
-    pass
-    gnome3.seahorse
-    polkit_gnome
-    # video accel
-    libva
-    # X/desktop
-    xorg.xbacklight
-    xdg_utils
-    xss-lock
-    unclutter-xfixes
-    i3pystatus
-    dmenu
-    rofi
-    clipster
-    gnome3.gnome_themes_standard
-    mpv
-    (inkscape.override { scourSupport = true; })
-    # (hunspellWithDicts [ hunspellDicts.en-gb-ise ])
-    (aspellWithDicts (ps: [ ps.en ]))
-    # development
-    emacs
-    vim
-    gnumake
-    git
-    # grml-zsh-config
-    antigen
-    direnv
-    # nix pkg management
-    home-manager
-    nox
-    pypi2nix
-    nix-prefetch-git
-    # virtualisation
-    docker
-    docker_compose
+
   ];
 
   environment.variables = {
