@@ -7,28 +7,10 @@ let
   homeDir      = builtins.getEnv "HOME";
   interfixPath = "config";
   emacsDir     = "${homeDir}/.emacs.d";
-  doomDir  = "${emacsDir}";
+  doomDir      = "${emacsDir}";
   repoName     = "machine-conf";
-  homePrefix   = "${homeDir}";
   repoRoot     = "${homeDir}/${repoName}";
   tilde        = "${homeDir}/${repoName}/tilde";
-
-  srcPaths = with lib; with builtins;
-    { rpfix, hpfix, infix }:
-      mapAttrsToList
-        (n: v: if (v == "directory") then
-                 srcPaths {
-                   rpfix = rpfix;
-                   hpfix = hpfix;
-                   infix = (infix + "/${n}");
-                 }
-               else if (v == "regular") then {
-                 name = toString ("${hpfix}/." + infix + "/${n}");
-                 value = {
-                   source = toPath ("${rpfix}/" + infix + "/${n}");
-                 };
-               } else [])
-          (readDir ("${rpfix}/" + infix));
 
 in rec {
 
@@ -44,7 +26,7 @@ in rec {
   programs = {
     home-manager = {
       enable = true;
-      path   = https://github.com/rycee/home-manager/archive/master.tar.gz;
+      path = "...";
     };
 
     feh.enable = true;
@@ -67,13 +49,6 @@ in rec {
   };
 
   home = {
-    # file = with builtins;
-    #   listToAttrs
-    #     (concatLists
-    #       (srcPaths {
-    #         rpfix = tilde;
-    #         hpfix = homePrefix;
-    #         infix = interfixPath;}));
 
     file = {
       ".nixpkgs/config.nix".source = "${repoRoot}/config.nix";
