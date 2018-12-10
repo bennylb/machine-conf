@@ -1,13 +1,15 @@
 #!/usr/bin/env sh
 
-if which home-manager; then
-    if ! test -d ~/.config/nixpkgs; then
-        mkdir -p ~/.config/nixpkgs
+XDG_NIX_PKGS="$HOME"/.config/nixpkgs
+
+if ! which home-manager; then
+    if ! test -d "$XDG_NIX_PKGS"; then
+        mkdir -p "$XDG_NIX_PKGS"
+        ln -s ./config/nixpkgs/home.nix "$XDG_NIX_PKGS"/home.nix
     fi
-    ln -s ./config/nixpkgs/home.nix ~/.config/nixpkgs/home.nix
-    home-manager switch
+    nix-shell ./home-manager -A install
 else
-    echo "home-manager doesn't seem to be installed."
-    echo "Install the system first to make home-manager available."
-    exit 1
+    printf '%s \n' "home-manager is already installed. "
+    printf '%s' "If you have no already done so, run "
+    printf '%s \n' "home-manager swtich to create you first generation."
 fi
