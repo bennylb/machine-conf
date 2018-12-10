@@ -97,6 +97,56 @@ let in
 
   services = {
     tlp.enable = true;
+
+    udisks2.enable = true;
+
+    logind.extraConfig = ''
+      IdleActionSec=15min
+      IdleAction=suspend
+      HandleLidSwitch=suspend
+      HandlePowerKey=suspend
+    '';
+
+    xserver = {
+      enable = true;
+      layout = "us";
+      serverFlagsSection = ''
+        Option "BlankTime"   "10"
+        Option "StandbyTime" "0"
+        Option "SuspendTime" "0"
+        Option "OffTime"     "0"
+      '';
+      inputClassSections =
+      [
+        ''
+          Identifier "touchpad"
+          MatchProduct "DLL0665:01 06CB:76AD Touchpad"
+          Driver "libinput"
+        ''
+      ];
+      libinput = {
+        enable = true;
+        tapping = true;
+        disableWhileTyping = true;
+        horizontalScrolling = true;
+        naturalScrolling = true;
+        accelSpeed = "0.25";
+        accelProfile = "adaptive";
+      };
+      # The following two drivers require libva and vaapiIntel packages for
+      # hardware accelerated video i.e mpv with vaapi support.
+      videoDrivers = [
+        "intel"
+        # "modesetting"
+      ];
+      # When using modesetting enable glamor.
+      # useGlamor = true;
+      displayManager.lightdm.enable = true;
+      windowManager = {
+        i3.enable = true;
+        default = "i3";
+      };
+    };
   };
 
   systemd.services = {
@@ -123,54 +173,7 @@ let in
     };
   };
 
-  services.logind.extraConfig = ''
-    IdleActionSec=15min
-    IdleAction=suspend
-    HandleLidSwitch=suspend
-    HandlePowerKey=suspend
-  '';
-
   # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
-    layout = "us";
-    serverFlagsSection = ''
-      Option "BlankTime"   "10"
-      Option "StandbyTime" "0"
-      Option "SuspendTime" "0"
-      Option "OffTime"     "0"
-    '';
-    inputClassSections =
-    [
-      ''
-        Identifier "touchpad"
-        MatchProduct "DLL0665:01 06CB:76AD Touchpad"
-        Driver "libinput"
-      ''
-    ];
-    libinput = {
-      enable = true;
-      tapping = true;
-      disableWhileTyping = true;
-      horizontalScrolling = true;
-      naturalScrolling = true;
-      accelSpeed = "0.25";
-      accelProfile = "adaptive";
-    };
-    # The following two drivers require libva and vaapiIntel packages for
-    # hardware accelerated video i.e mpv with vaapi support.
-    videoDrivers = [
-      "intel"
-      # "modesetting"
-    ];
-    # When using modesetting enable glamor.
-    # useGlamor = true;
-    displayManager.lightdm.enable = true;
-    windowManager = {
-      i3.enable = true;
-      default = "i3";
-    };
-  };
 
   # Font config
   fonts = {
