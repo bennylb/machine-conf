@@ -52,7 +52,6 @@
     direnv
     fasd
     # nix pkg management
-    home-manager
     nox
     pypi2nix
     nix-prefetch-git
