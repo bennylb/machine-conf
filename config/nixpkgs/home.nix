@@ -10,7 +10,6 @@ let
   doomDir      = "${emacsDir}";
   repoName     = "machine-conf";
   repoRoot     = "${homeDir}/${repoName}";
-  tilde        = "${homeDir}/${repoName}/tilde";
 
 in rec {
 
@@ -26,7 +25,7 @@ in rec {
   programs = {
     home-manager = {
       enable = true;
-      path = "...";
+      path = "${homeDir}/${repoName}/home-manager";
     };
 
     feh.enable = true;
