@@ -9,7 +9,8 @@ if ! which home-manager; then
     fi
     nix-shell ./home-manager -A install
 else
-    printf '%s \n' "home-manager is already installed. "
-    printf '%s' "If you have no already done so, run "
-    printf '%s \n' "home-manager swtich to create you first generation."
+    printf '\n%s\n%s %s\n' \
+        "home-manager is already installed." \
+        "If you have no already done so, run" \
+        "home-manager swtich to create you first generation."
 fi
