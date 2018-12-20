@@ -1,6 +1,11 @@
 { pkgs, ... }:
 
 {
+
+  programs = {
+    dconf.enable = true;
+  };
+
   security.pam.services.i3lock.enableGnomeKeyring = true;
 
   systemd.user.services.xssi3lock = {

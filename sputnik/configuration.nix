@@ -8,8 +8,9 @@ let in
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./modules/common.nix
-    ./modules/i3.nix
+    ../common/common.nix
+    ../common/i3.nix
+    ../common/chromium.nix
   ];
 
   fileSystems."/boot" = {
@@ -72,12 +73,29 @@ let in
     gptfdisk
     powertop
     libva
+    xfce.terminal
+    (qutebrowser.override { withPdfReader = false; withMediaPlayback = false; })
+    chromium
+    # virtualisation
+    qemu
+    docker
+    docker_compose
   ];
 
   nixpkgs = {
     config = {
+      allowUnfree = true;
       mpv.vaapiSupport = true;
+      firefox.enableBrowserpass = true;
+      firefox.enablePlasmaBrowserIntegration = true;
     };
+  };
+
+  documentation = {
+    enable = true;
+    man.enable = true;
+    info.enable = true;
+    nixos.enable = true;
   };
 
   security = {
@@ -90,15 +108,26 @@ let in
   };
 
   programs = {
-    fish.enable = true;
+    browserpass.enable = true;
+    dconf.enable = true;
   };
 
   powerManagement.enable = true;
 
   services = {
     tlp.enable = true;
-
     udisks2.enable = true;
+    unclutter-xfixes.enable = false;
+    dbus.packages = [ pkgs.gnome3.dconf ];
+    gnome3.gnome-keyring.enable = true;
+    fstrim.enable = true;
+
+    redshift = {
+      enable = true;
+      provider = "manual";
+      latitude = "-38.1";
+      longitude = "145.2";
+    };
 
     logind.extraConfig = ''
       IdleActionSec=15min
@@ -107,6 +136,7 @@ let in
       HandlePowerKey=suspend
     '';
 
+    # Enable the X11 windowing system.
     xserver = {
       enable = true;
       layout = "us";
@@ -149,34 +179,12 @@ let in
     };
   };
 
-  systemd.services = {
-    fstrim = {
-      description = "Discard unused blocks";
-      path = [ pkgs.utillinux ];
-      serviceConfig = {
-        Type = "oneshot";
-        ExecStart = "${pkgs.utillinux}/bin/fstrim -av";
-      };
-    };
-  };
-
-  systemd.timers = {
-    fstrim = {
-      description = "Discard unused blocks once a week";
-      timerConfig = {
-        OnCalendar = "weekly";
-        AccuracySec = "6h";
-        Unit = "fstrim.service";
-        Persistent = true;
-      };
-      wantedBy = ["timers.target"];
-    };
-  };
-
-  # Enable the X11 windowing system.
-
   # Font config
   fonts = {
+    fontconfig = {
+      penultimate.enable = false;
+      ultimate.enable = true;
+    };
     fonts = [
       pkgs.dejavu_fonts
       pkgs.liberation_ttf
@@ -185,9 +193,10 @@ let in
     ];
   };
 
-  # The NixOS release to be compatible with for stateful data such as databases.
+  # This value determines the NixOS release with which your system is to be
+  # compatible, in order to avoid breaking some software such as database
+  # servers. You should change this only after NixOS release notes say you
+  # should.
   # system.stateVersion = "16.09";
-  system.stateVersion = "18.03";
-  # system.nixos.stateVersion = "18.03";
-
+  system.stateVersion = "18.03"; # Did you read the comment?
 }

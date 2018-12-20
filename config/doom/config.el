@@ -1,6 +1,8 @@
 ;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
 
-(setq doom-font (font-spec :family "Source Code Pro" :size 15))
+(let* ((font-size (cond ((string= system-name "station") 13)
+                        ((string= system-name "sputnik") 15))))
+  (setq doom-font (font-spec :family "Source Code Pro" :size font-size)))
 
 ;; (setq ivy-re-builders-alist
 ;;         '((counsel-ag . ivy--regex-plus)

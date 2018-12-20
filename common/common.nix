@@ -1,7 +1,6 @@
 { pkgs, ... }:
 
 {
-
   # Select internationalisation properties.
   i18n = {
     # consoleFont = "Lat2-Terminus16";
@@ -23,10 +22,7 @@
     bat
     tealdeer
     rxvt_unicode
-    xfce.terminal
     # network/web
-    (qutebrowser.override { withPdfReader = false; withMediaPlayback = false; })
-    chromium
     youtube-dl
     ncat
     wget
@@ -44,7 +40,8 @@
     (aspellWithDicts (ps: [ ps.en ]))
     # development
     emacs26
-    vim
+    emacs-all-the-icons-fonts
+    vimHugeX
     gnumake
     git
     # grml-zsh-config
@@ -56,6 +53,7 @@
     pypi2nix
     nix-prefetch-git
     # virtualisation
+    qemu
     docker
     docker_compose
   ];
@@ -67,24 +65,12 @@
   nix.useSandbox = true;
 
   nixpkgs = {
-    overlays =
-      let path = /home/ben/.config/nixpkgs/overlays; in with builtins;
-      map (n: import (path + ("/" + n)))
-          (filter (n: match ".*\\.nix" n != null ||
-                      pathExists (path + ("/" + n + "/default.nix")))
-                  (attrNames (readDir path)));
-
-    config = {
-      allowUnfree = true;
-      # firefox.enableBrowserpass = true;
-    };
-  };
-
-  documentation = {
-    enable = true;
-    man.enable = true;
-    info.enable = true;
-    nixos.enable = true;
+     overlays =
+       let path = ../overlays; in with builtins;
+       map (n: import (path + ("/" + n)))
+           (filter (n: match ".*\\.nix" n != null ||
+                       pathExists (path + ("/" + n + "/default.nix")))
+                   (attrNames (readDir path)));
   };
 
   security = {
@@ -110,7 +96,6 @@
       # source ${pkgs.grml-zsh-config}/etc/zsh/zshrc
       source ${pkgs.antigen}/share/antigen/antigen.zsh
     '';
-    fish.enable = true;
     tmux.enable = true;
     # light only needed when using X modesetting as xbacklight isn't available
     # programs.light.enable = true;
@@ -118,31 +103,13 @@
       enable = false;
       enableSSHSupport = true;
     };
-    browserpass.enable = true;
-    dconf.enable = true;
   };
 
   sound.enable = true;
 
   services = {
-    dbus.packages = [ pkgs.gnome3.dconf ];
-    gnome3.gnome-keyring.enable = true;
     emacs.package = pkgs.emacs26;
     emacs.install = true;
-    unclutter-xfixes.enable = false;
-    redshift = {
-      enable = true;
-      provider = "manual";
-      latitude = "-38.1";
-      longitude = "145.2";
-    };
-  };
-
-  fonts = {
-    fontconfig = {
-      penultimate.enable = false;
-      ultimate.enable = true;
-    };
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.

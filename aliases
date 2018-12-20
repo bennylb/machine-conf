@@ -1,0 +1,34 @@
+# -*- mode: sh; eval: (sh-set-shell "bash") -*-
+
+# Use function to create the respective alias as completion fails
+# when using a plain alias.
+bat() { command bat --style=plain "$@"; }
+less() { command bat --style=plain "$@"; }
+
+# Aliases
+alias sudo="sudo "
+# alias bat="bat --style=plain"
+# alias less="less -R"
+alias fd="fd"
+alias du="du -h"
+# systemctl
+alias sd="systemctl"
+alias sdu="systemctl --user"
+# Run nix repl and load nixos config
+alias nxrplc="nix repl '<nixpkgs/nixos>'"
+# Run nix repl and load nixos lib
+alias nxrpll="nix repl '<nixos/lib>'"
+alias nxcatpkg="EDITOR=bat nix edit"
+alias nxcheck="nix-store --verify --repair --check-contents"
+alias nxsearch="nix search -I nixpkgs="$HOME"/src/git/nixpkgs"
+# Erase clipster's history
+alias clpdh="clipster -c --erase-entire-board"
+# Using exec SHELL replaces itself rather than fork i.e reloading the shell
+alias shrld="exec $SHELL" # with -l why? We want an interactive shell
+
+# Crudely strip .sh extension
+stripshext() {
+    for f in *; do
+        mv "$f" $(echo "$f" | cut -d '.' -f 1)
+    done
+}

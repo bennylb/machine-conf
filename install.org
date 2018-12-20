@@ -1,0 +1,9 @@
+#+TITLE: install
+
+* TODO
+** Install process
+1. During installation clone machine-conf and link host configuration.
+   To do this will need to workout how to preserve link once root changes after insall.
+2. After installation reboot and on first login create a password for user (with
+   passwd).
+** plasma-browser-integration
