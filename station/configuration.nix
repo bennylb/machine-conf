@@ -138,7 +138,7 @@
         night = "1"; # default 1
       };
       temperature = {
-        day = 6500; # default 5500
+        day = 5500; # default 5500
         night = 3700; # default 3700
       };
     };
