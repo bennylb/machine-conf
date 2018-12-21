@@ -29,6 +29,8 @@ in rec {
       ".bash_profile".source = "${repoPath}/bash_profile";
       ".zprofile".source = "${repoPath}/zprofile";
       ".tmux.conf".source = "${repoPath}/tmux.conf";
+      ".xprofile".source = "${repoPath}/xprofile";
+      ".xsession".source = "${repoPath}/xsession";
       ".Xresources".source = "${repoPath}/Xresources";
       ".gnupg/gpg-agent.conf".source = "${repoPath}/gnupg/gpg-agent.conf";
       ".gnupg/gpg.conf".source = "${repoPath}/gnupg/gpg.conf";

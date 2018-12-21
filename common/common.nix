@@ -23,6 +23,7 @@
     tealdeer
     rxvt_unicode
     ntfs3g
+    xclip
     # woeusb
     # network/web
     youtube-dl

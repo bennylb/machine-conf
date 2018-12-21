@@ -138,8 +138,8 @@
         night = "1"; # default 1
       };
       temperature = {
-        day = 4500; # default 5500
-        night = 3250; # default 3700
+        day = 6500; # default 5500
+        night = 3700; # default 3700
       };
     };
     # Enable the X11 windowing system.
