@@ -1,5 +1,5 @@
 # Use gpg-agent as ssh-agent
-if test -z `pidof gpg-agent`; then
+if test -z "$(pidof gpg-agent)"; then
     export GPG_TTY=$(tty)
     gpg-connect-agent updatestartuptty /bye >/dev/null
 
