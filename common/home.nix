@@ -52,7 +52,6 @@ in {
     enable = true;
 
     configFile = {
-      "mpv/mpv.conf".source = "${repoPath}/config/mpv/mpv-station.conf";
       "mpv/scripts/dev/select-ao.lua".source = "${repoPath}/config/mpv/scripts/dev/select-ao.lua";
       "direnv/direnvrc".source = "${repoPath}/example-nix/tools/direnv/direnvrc";
       "doom".source = "${repoPath}/config/doom";

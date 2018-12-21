@@ -36,6 +36,7 @@ in rec {
       "i3/config".source = "${repoPath}/config/i3/config";
       "i3/pystatus.py".source = "${repoPath}/config/i3/pystatus.py";
       "i3/rsstatus.toml".source = "${repoPath}/config/i3/rsstatus.toml";
+      "mpv/mpv.conf".source = "${repoPath}/config/mpv/mpv-sputnik.conf";
       "qutebrowser/bookmarks/urls".source = "${repoPath}/config/qutebrowser/bookmarks/urls";
       "qutebrowser/config.py".source = "${repoPath}/config/qutebrowser/config.py";
       "qutebrowser/quickmarks".source = "${repoPath}/config/qutebrowser/quickmarks";

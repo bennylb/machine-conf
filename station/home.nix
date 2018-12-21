@@ -27,7 +27,7 @@ in rec {
     enable = true;
 
     configFile = {
-
+      "mpv/mpv.conf".source = "${repoPath}/config/mpv/mpv-station.conf";
     };
 
     dataFile = {
