@@ -55,10 +55,6 @@
     nox
     pypi2nix
     nix-prefetch-git
-    # virtualisation
-    qemu
-    docker
-    docker_compose
   ];
 
   environment.variables = {
