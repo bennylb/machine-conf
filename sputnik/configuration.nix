@@ -8,7 +8,7 @@ let in
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../common/common.nix
+    ../common/configuration.nix
     ../common/i3.nix
     ../common/chromium.nix
   ];
@@ -59,7 +59,7 @@ let in
     cleanTmpDir = true;
   };
 
-  virtualisation.docker.enable = true;
+  # virtualisation.docker.enable = true;
 
   networking = {
     hostName = "sputnik"; # Define your hostname.

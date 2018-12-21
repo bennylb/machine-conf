@@ -9,7 +9,7 @@ let
   repoPath = "${homeDir}/${repoName}";
 in rec {
   imports = [
-    ../common/home-common.nix
+    ../common/home.nix
   ];
 
   programs = {
@@ -47,7 +47,6 @@ in rec {
     enable = true;
 
     configFile = {
-      "alacritty/alacritty.yml".source = "${repoPath}/config/alacritty/alacritty.yml";
       "clipster/clipster.ini".source = "${repoPath}/config/clipster/clipster.ini";
       "i3/config".source = "${repoPath}/config/i3/config";
       "i3/pystatus.py".source = "${repoPath}/config/i3/pystatus.py";
@@ -58,10 +57,8 @@ in rec {
       "qutebrowser/config.py".source = "${repoPath}/config/qutebrowser/config.py";
       "qutebrowser/quickmarks".source = "${repoPath}/config/qutebrowser/quickmarks";
       "direnv/direnvrc".source = "${repoPath}/example-nix/tools/direnv/direnvrc";
-      "doom" = {
-        source = "${repoPath}/config/doom";
-        recursive = true;
-      };
+      "doom".source = "${repoPath}/config/doom";
+  };
     };
 
     dataFile = {

@@ -1,6 +1,6 @@
 ;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
 
-(let* ((font-size (cond ((string= system-name "station") 13)
+(let* ((font-size (cond ((string= system-name "station") 12)
                         ((string= system-name "sputnik") 15))))
   (setq doom-font (font-spec :family "Source Code Pro" :size font-size)))
 

@@ -9,7 +9,7 @@ let
   repoPath = "${homeDir}/${repoName}";
 in rec {
   imports = [
-    ../common/home-common.nix
+    ../common/home.nix
   ];
 
   programs = {
@@ -41,17 +41,10 @@ in rec {
     enable = true;
 
     configFile = {
-      "clipster/clipster.ini".source = "${repoPath}/config/clipster/clipster.ini";
       "mpv/mpv.conf".source = "${repoPath}/config/mpv/mpv-station.conf";
       "mpv/scripts/dev/select-ao.lua".source = "${repoPath}/config/mpv/scripts/dev/select-ao.lua";
-      "qutebrowser/bookmarks/urls".source = "${repoPath}/config/qutebrowser/bookmarks/urls";
-      "qutebrowser/config.py".source = "${repoPath}/config/qutebrowser/config.py";
-      "qutebrowser/quickmarks".source = "${repoPath}/config/qutebrowser/quickmarks";
       "direnv/direnvrc".source = "${repoPath}/example-nix/tools/direnv/direnvrc";
-      "doom" = {
-        source = "${repoPath}/config/doom";
-        recursive = true;
-      };
+      "doom".source = "${repoPath}/config/doom";
     };
 
     dataFile = {
