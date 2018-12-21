@@ -99,7 +99,7 @@
     # light only needed when using X modesetting as xbacklight isn't available
     # programs.light.enable = true;
     gnupg.agent = {
-      enable = false;
+      enable = true;
       enableSSHSupport = true;
     };
   };
