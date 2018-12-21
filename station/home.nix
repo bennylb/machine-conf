@@ -48,8 +48,6 @@ in rec {
     };
 
     dataFile = {
-      "qutebrowser/userscripts/org_capture".source = "${repoPath}/share/qutebrowser/userscripts/org_capture";
-      "qutebrowser/userscripts/yank_org_link".source = "${repoPath}/share/qutebrowser/userscripts/yank_org_link";
       "zsh/site-functions/prompt_pure_setup".source = "${repoPath}/pure/pure.zsh";
       "zsh/site-functions/async".source = "${repoPath}/pure/async.zsh";
     };
