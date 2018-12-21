@@ -81,9 +81,10 @@
   environment.systemPackages = with pkgs; [
     firefox
     chromium
-    redshift-plasma-applet
+    # redshift-plasma-applet
     plasma-browser-integration
     # kwalletcli
+    google-play-music-desktop-player
     # virtualisation
     qemu
     docker

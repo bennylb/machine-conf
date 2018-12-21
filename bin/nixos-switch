@@ -11,7 +11,7 @@ NXPKGS_BRANCH="$(echo "$NXPKGS_STATUS" | awk '/head/ { print $3 }')"
 
 echo -e "Current nixpkgs branch is: $NXPKGS_BRANCH.\n"
 
-read -p "Confirm you're on the right branch before continuing? [Y/n]: " -n 1 -r
+read -p "Confirm this is the right branch before continuing? [Y/n]: " -n 1 -r
 echo -e "\n"
 if [[ ! $REPLY =~ ^[Yy]$ ]]
 then

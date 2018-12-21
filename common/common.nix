@@ -22,6 +22,8 @@
     bat
     tealdeer
     rxvt_unicode
+    ntfs3g
+    # woeusb
     # network/web
     youtube-dl
     ncat
