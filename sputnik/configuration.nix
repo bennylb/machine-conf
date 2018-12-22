@@ -59,7 +59,7 @@ let in
     cleanTmpDir = true;
   };
 
-  # virtualisation.docker.enable = true;
+  virtualisation.docker.enable = true;
 
   networking = {
     hostName = "sputnik"; # Define your hostname.
@@ -183,7 +183,7 @@ let in
   fonts = {
     fontconfig = {
       penultimate.enable = false;
-      ultimate.enable = true;
+      ultimate.enable = false;
     };
     fonts = [
       pkgs.dejavu_fonts

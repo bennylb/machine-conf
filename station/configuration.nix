@@ -160,7 +160,7 @@
   # Font config
   fonts = {
     fontconfig = {
-      penultimate.enable = true; # default true
+      penultimate.enable = false; # default true
       ultimate.enable = false;
     };
     fonts = [
