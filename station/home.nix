@@ -28,6 +28,7 @@ in rec {
 
     configFile = {
       "mpv/mpv.conf".source = "${repoPath}/config/mpv/mpv-station.conf";
+      "streamlink/config".source = "${repoPath}/config/streamlink/config";
     };
 
     dataFile = {
