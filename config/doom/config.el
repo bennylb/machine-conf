@@ -14,6 +14,11 @@
 ;;           )
 ;;         ivy-initial-inputs-alist nil)
 
+(setq browse-url-browser-function 'browse-url-firefox)
+;; (setq browse-url-browser-function 'browse-url-generic
+;;       browse-url-generic-program "firefox")
+
+
 ;; (def-package! auth-source-pass
 ;;   :after auth-source
 ;;   :config (auth-source-pass-enable))
@@ -64,6 +69,9 @@
    :sasl-password (lambda (&rest _) (+pass-get-secret "irc.freenode.net"))
    :channels ("#nixos")
    ))
+
+(after! markdown-mode
+  (setq markdown-command "pandoc"))
 
 (setq +pretty-code-enabled-modes '(emacs-lisp-mode))
 
