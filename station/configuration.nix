@@ -10,7 +10,10 @@
     ./hardware-configuration.nix
     ../common/configuration.nix
     ../common/chromium.nix
+    ../musnix
   ];
+
+  musnix.enable = true;
 
   fileSystems."/boot" = {
     # device = "/dev/sda1";
@@ -28,6 +31,8 @@
     cpu.intel.updateMicrocode = true;
     # opengl.extraPackages = with pkgs; [ vaapiIntel ];
     pulseaudio.enable = true;
+    # pulseaudio.package = pkgs.pulseaudio.override { jackaudioSupport = true; };
+    pulseaudio.package = pkgs.pulseaudioFull;
   };
 
   boot = {
@@ -58,7 +63,6 @@
         '';
       };
     };
-
     # boot.kernelPackages = with pkgs; linuxPackages;
     kernelPackages = with pkgs; linuxPackages_4_19;
     blacklistedKernelModules = [ ];
@@ -84,6 +88,7 @@
     # redshift-plasma-applet
     plasma-browser-integration
     # kwalletcli
+    (mpv.override { jackaudioSupport = true; })
     google-play-music-desktop-player
     # virtualisation
     qemu
@@ -94,7 +99,6 @@
   nix.useSandbox = true;
 
   nixpkgs = {
-
     config = {
       allowUnfree = true;
       firefox.enableBrowserpass = true;
@@ -119,6 +123,19 @@
   };
 
   sound.enable = true;
+  sound.extraConfig = ''
+    pcm.!default {
+       type hw
+       card DAC
+    }
+
+    ctl.!default {
+      type hw
+      card DAC
+    }
+  '';
+
+  # defaults.pcm.card DAC;
 
   powerManagement.enable = true;
 

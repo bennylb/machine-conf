@@ -36,7 +36,6 @@
     gnupg
     pass
     # media/graphics
-    mpv
     inkscape
     # misc
     # (hunspellWithDicts [ hunspellDicts.en-gb-ise ])
@@ -84,7 +83,6 @@
     polkit.enable = true; # default
   };
 
-
   programs = {
     bash.promptInit = "";
     bash.enableCompletion = true;
@@ -115,7 +113,8 @@
   users.extraUsers.ben = {
     isNormalUser = true;
     home = "/home/ben";
-    extraGroups = [ "wheel" "networkmanager" "docker" ];
+    extraGroups = [ "wheel" "audio" "networkmanager" "docker" ];
     shell = pkgs.zsh;
   };
+
 }

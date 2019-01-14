@@ -75,6 +75,7 @@ let in
     libva
     xfce.terminal
     (qutebrowser.override { withPdfReader = false; withMediaPlayback = false; })
+    mpv
     chromium
     # virtualisation
     qemu

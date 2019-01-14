@@ -25,6 +25,7 @@ alias nxsearch="nix search -I nixpkgs="$HOME"/src/git/nixpkgs"
 alias clpdh="clipster -c --erase-entire-board"
 # Using exec SHELL replaces itself rather than fork i.e reloading the shell
 alias shrld="exec $SHELL" # with -l why? We want an interactive shell
+alias jc="jack_control"
 
 # Crudely strip .sh extension
 stripshext() {

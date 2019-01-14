@@ -29,6 +29,8 @@ in rec {
     configFile = {
       "mpv/mpv.conf".source = "${repoPath}/config/mpv/mpv-station.conf";
       "streamlink/config".source = "${repoPath}/config/streamlink/config";
+      "pulse/client.conf".source = "${repoPath}/config/pulse/client.conf";
+      "pulse/daemon.conf".source = "${repoPath}/config/pulse/daemon.conf";
     };
 
     dataFile = {

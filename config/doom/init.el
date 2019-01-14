@@ -7,7 +7,6 @@
        (evil +everywhere); come to the dark side, we have cookies
        file-templates    ; auto-snippets for empty files
        (lookup           ; helps you navigate your code and documentation
-        +devdocs         ; ...on devdocs.io online
         +docsets)        ; ...or in Dash docsets locally
        snippets          ; my elves. They type so I don't have to
        spellcheck        ; tasing you for misspelling mispelling
@@ -49,14 +48,16 @@
       ;window-select     ; visually switch windows
 
        :editor
-      ;(format +onsave)  ; automated prettiness
+       ;;(format +onsave)  ; automated prettiness
+       lispy             ; vim for lisp, for people who dont like vim
        multiple-cursors  ; editing in many places at once
-      ;parinfer          ; turn lisp into python, sort of
-       lispy
+       ;;parinfer          ; turn lisp into python, sort of
        rotate-text       ; cycle region at point between text candidates
 
        :emacs
-       dired             ; making dired pretty [functional]
+       (dired
+        ;; +icons
+        )             ; making dired pretty [functional]
        fd-dired
        dired-subtree
        ediff             ; comparing files in Emacs
@@ -85,12 +86,14 @@
       ;upload            ; map local to remote projects via ssh/ftp
       ;wakatime
        direnv
-       lsp
+       ;; lsp
 
        :lang
       ;assembly          ; assembly for fun or debugging
       ;(cc +irony +rtags); C/C++/Obj-C madness
-       (cc +lsp)
+       (cc
+        ;; +lsp
+        )
       ;clojure           ; java with a lisp
       ;common-lisp       ; if you've seen one lisp, you've seen them all
       ;coq               ; proofs-as-programs
@@ -166,6 +169,7 @@
        ;; your own modules.
        (default
          +bindings
+         ;; +smartparens
          +snippets
          +evil-commands
          )

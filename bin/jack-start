@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+jack_control start
+jack_control ds alsa
+jack_control dps device hw:DAC
+jack_control dps rate 44100
+jack_control dps period 128
+jack_control dps nperiods 3
+jack_control eps realtime true
+
+# pactl load-module module-jack-sink channels=2
+# pacmd set-default-sink jack_out
