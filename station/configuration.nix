@@ -30,7 +30,7 @@
   hardware = {
     cpu.intel.updateMicrocode = true;
     # opengl.extraPackages = with pkgs; [ vaapiIntel ];
-    pulseaudio.enable = true;
+    pulseaudio.enable = false;
     # pulseaudio.package = pkgs.pulseaudio.override { jackaudioSupport = true; };
     pulseaudio.package = pkgs.pulseaudioFull;
   };
@@ -127,6 +127,8 @@
     pcm.!default {
        type hw
        card DAC
+       format S16_LE
+       rate 44100
     }
 
     ctl.!default {
