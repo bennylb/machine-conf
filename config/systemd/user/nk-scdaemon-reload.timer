@@ -1,0 +1,9 @@
+[Unit]
+Description=Run nk-scdaemon-reload.service every 2 hours
+
+[Timer]
+OnActiveSec=0s
+OnUnitActiveSec=2h
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,8 @@
+[Unit]
+Description=Reload scdaemon for Nitrokey pin reset
+
+[Service]
+ExecStart=/usr/bin/gpgconf --reload scdaemon
+
+[Install]
+WantedBy=default.target

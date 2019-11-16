@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+EMC="$(which emacsclient)"
+
+$EMC --tty --eval "(ediff-files \"$1\" \"$2\")"

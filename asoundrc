@@ -1,0 +1,25 @@
+pcm.default_device {
+    type hw
+    card "Control"
+}
+
+pcm.!default {
+    type plug
+    slave {
+        pcm "default_device"
+        #
+        # Set hardware manually
+        #
+        #format S16_LE
+        #rate 44100
+        #
+        # Setting period and buffer fails
+        #period_size 256
+        #buffer_size 768
+    }
+}
+
+ctl.!default {
+    type hw
+    card "Control"
+}
