@@ -16,6 +16,8 @@
 # For anything that needs to be available each time a new 
 # terminal (non-login shell) is started place it in ~/.bashrc.
 
+[[ ":$PATH:" != *":$HOME/bin:"* ]] && PATH="$HOME/bin:${PATH}"
+
 # # Use gpg-agent as ssh-agent
 # export GPG_TTY=$(tty)
 # gpg-connect-agent updatestartuptty /bye >/dev/null

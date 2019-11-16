@@ -1,20 +1,20 @@
-! -- Fonts config ------------------------------------------------------------
+! -- Fonts config --------------------------------------------------------------
+! Xft.antialias: 1
+! Xft.hinting: 1
 ! Xft.autohint: 0
 ! Xft.lcdfilter: lcddefault
 ! Xft.hintstyle: hintslight
-! Xft.hinting: 1
-! Xft.antialias: 1
 ! Some unpatched versions of urxvt may need rgba set to: none
 ! or the letterSpace option set below to fix font spacing
-! Xft.rgba: rgb 
+! Xft.rgba: rgb
 
-! -- Basic URxvt config example ----------------------------------------------
+! -- Basic URxvt config example ------------------------------------------------
 URxvt*font: xft:Ubuntu Mono:size=13
 ! URxvt*letterSpace: -1
 URxvt*scrollBar: false
 ! URxvt*iconFile: /path/to/file
 
-! -- Colour themes -----------------------------------------------------------
+! -- Colour themes -------------------------------------------------------------
 !
 ! Provided by http://iterm2colorschemes.com/
 

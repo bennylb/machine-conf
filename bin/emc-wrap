@@ -1,9 +1,9 @@
 #!/usr/bin/env sh
 
-EC_BIN=/run/current-system/sw/bin/emacsclient
+EC_BIN="$(which emacsclient)"
 
-if [ -z "$SSH_AUTH_SOCK" ]; then
-    export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-fi
+# if [ -z "$SSH_AUTH_SOCK" ]; then
+#     export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+# fi
 
 exec "$EC_BIN" "$@"

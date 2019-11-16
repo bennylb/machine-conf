@@ -24,7 +24,9 @@ alias nxsearch="nix search -I nixpkgs="$HOME"/src/git/nixpkgs"
 # Erase clipster's history
 alias clpdh="clipster -c --erase-entire-board"
 # Using exec SHELL replaces itself rather than fork i.e reloading the shell
-alias shrld="exec $SHELL" # with -l why? We want an interactive shell
+alias shrld="exec $SHELL" # It was suggested to be used with -l why? We want an interactive shell
+alias btrdu="btrfs filesystem du -s --human-readable"
+alias btrdf="btrfs filesystem df --human-readable"
 alias jc="jack_control"
 
 # Crudely strip .sh extension
@@ -32,4 +34,15 @@ stripshext() {
     for f in *; do
         mv "$f" $(echo "$f" | cut -d '.' -f 1)
     done
+}
+
+# Amend or prepend dir (first arg) to PATH
+pathmunge () {
+    if ! echo "$PATH" | /bin/grep -Eq "(^|:)$1($|:)" ; then
+        if [ "$2" = "after" ] ; then
+            PATH="$PATH:$1"
+        else
+            PATH="$1:$PATH"
+        fi
+    fi
 }
